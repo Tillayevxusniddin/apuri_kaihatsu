@@ -46,7 +46,19 @@
     "groups": "Groups",
     "parents": "Parents",
     "messages": "Messages",
-    "admins": "Admins"
+    "admins": "Admins",
+    "form-page":"Forms page",
+    "all-forms":"All forms",
+    "documentation":"Documentation",
+    "introduction":"Introduction",
+    "get-started":"Get Started",
+    "tutorials":"Tutorials",
+    "changelog":"Changelog",
+    "general":"General",
+    "team":"Team",
+    "billing":"Billing",
+    "limits":"Limits",
+    "settings":"Settings" 
   },
   "dashboard": {
     "newForms": "New Forms",

@@ -47,7 +47,19 @@
     "groups": "グループ",
     "parents": "保護者",
     "messages": "メッセージ",
-    "admins": "管理者"
+    "admins": "管理者",
+    "form-page": "フォームページ",
+    "all-forms": "すべてのフォーム",
+    "documentation": "ドキュメンテーション",
+    "introduction": "紹介",
+    "get-started": "始める",
+    "tutorials": "チュートリアル",
+    "changelog": "変更履歴",
+    "general": "一般",
+    "team": "チーム",
+    "billing": "請求",
+    "limits": "制限",
+    "settings": "設定"
   },
   "dashboard": {
     "newForms": "新しいフォーム",

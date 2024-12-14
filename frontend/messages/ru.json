@@ -46,7 +46,19 @@
     "groups": "Группы",
     "parents": "Родители",
     "messages": "Сообщения",
-    "admins": "Администраторы"
+    "admins": "Администраторы",
+    "form-page": "Страница форм",
+    "all-forms": "Все формы",
+    "documentation": "Документация",
+    "introduction": "Введение",
+    "get-started": "Начало работы",
+    "tutorials": "Учебники",
+    "changelog": "История изменений",
+    "general": "Общее",
+    "team": "Команда",
+    "billing": "Платежи",
+    "limits": "Ограничения",
+    "settings": "Настройки"
   },
   "dashboard": {
     "newForms": "Новые формы",

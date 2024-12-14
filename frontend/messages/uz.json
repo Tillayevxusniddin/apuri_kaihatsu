@@ -47,7 +47,19 @@
     "groups": "Guruhlar",
     "parents": "Ota-onalar",
     "messages": "Xabarlar",
-    "admins": "Adminlar"
+    "admins": "Adminlar",
+    "form-page": "Formalar sahifasi",
+    "all-forms": "Barcha shakllar",
+    "documentation": "Hujjatlar",
+    "introduction": "Kirish",
+    "get-started": "Boshlash",
+    "tutorials": "Darsliklar",
+    "changelog": "O‘zgarishlar ro‘yxati",
+    "general": "Umumiy",
+    "team": "Jamoa",
+    "billing": "Hisob-kitob",
+    "limits": "Cheklovlar",
+    "settings": "Sozlamalar"
   },
   "dashboard": {
     "newForms": "Yangi formlar",
