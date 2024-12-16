@@ -10,6 +10,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { auth } from "@/auth";
 import { SidebarProvider } from "@/components/ui/sidebar";
 
+
 const inter = Inter({ subsets: ["latin", "cyrillic"] });
 
 export async function generateMetadata() {

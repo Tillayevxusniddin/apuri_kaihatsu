@@ -59,3 +59,15 @@ export default function middleware(req: NextRequest) {
 export const config = {
   matcher: ["/((?!api|_next|.*\\..*).*)"],
 };
+
+
+// export const config = {
+//   // Match only internationalized pathnames
+//   matcher: [
+//     '/((?!api|_next/static|_next/image|favicon.ico|apple-touch-icon.png|favicon.svg|images/books|icons|manifest).*)'
+//   ]
+// };
+
+
+
+

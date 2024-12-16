@@ -84,7 +84,7 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex-1">
       <div className="grid content-center place-items-center min-h-screen w-full gap-5 p-4">
         <div className="flex gap-2">
           <LanguageSelect />

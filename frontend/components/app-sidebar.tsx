@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/sidebar"
 import { url } from "inspector"
 import { useTranslations } from "next-intl"
+import {usePathname} from "@/navigation";
 
 // This is sample data.
 // const data = {
@@ -190,7 +191,6 @@ const data = {
       key: "dashboard", // Tarjimani olish uchun "key" qo'shildi
       url: "/dashboard",
       icon: SquareTerminal,
-      isActive: true,
       items: [
         {
           key: "messages", // "key" orqali tarjima qilish
@@ -281,6 +281,7 @@ const data = {
       name: "Design Engineering",
       url: "#",
       icon: Frame,
+
     },
     {
       name: "Sales & Marketing",
@@ -297,31 +298,36 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const t = useTranslations("nav");
-  
+  const pathname = usePathname();
+
+  const getActiveState = (url: string) => {
+    console.log(pathname, url)
+    return pathname === url;
+  };
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        {/* <NavMain items={data.navMain} /> */}
         <NavMain
           items={data.navMain.map((navItem) => ({
             ...navItem,
-            title: t(navItem.key), // Tarjimani qo'llash
+            title: t(navItem.key),  // Translate the title
+            isActive: getActiveState(navItem.url), // Set isActive based on the current pathname
             items: navItem.items.map((item) => ({
               ...item,
-              title: t(item.key), // Har bir elementning title'ini tarjima qilish
+              title: t(item.key), // Translate each item's title
+              isActive: getActiveState(item.url), // Set isActive for each item
             })),
           }))}
         />
-        {/* <NavProjects projects={data.projects} /> */}
-         
+        {/*<NavProjects projects={data.projects} />*/}
       </SidebarContent>
-     
-      {/* <SidebarFooter>
-      //   <NavUser user={data.user} />
-      // </SidebarFooter> */}
+        {/*<SidebarFooter>*/}
+        {/*   <NavUser user={data.user} />*/}
+        {/*</SidebarFooter>*/}
       <SidebarRail />
     </Sidebar>
   );

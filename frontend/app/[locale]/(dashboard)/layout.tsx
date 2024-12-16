@@ -252,5 +252,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <main className="flex-1 p-4 lg:p-6">{children}</main>
       </SidebarInset>
     </div>
+  
   );
 }

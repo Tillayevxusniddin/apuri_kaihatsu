@@ -20,7 +20,7 @@ mysql -u root -p < database.sql
 ```
 
 3. **Create or Update `nodemon.json`**:
-Ensure you have a `nodemon.json` file in the root directory of your project. This file should contain the necessary
+Ensure you have a `nodemon.json` file in for each  root directory of your project. This file should contain the necessary
 environment variables for your application.
 
 ```json
