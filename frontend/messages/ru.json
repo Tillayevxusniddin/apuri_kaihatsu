@@ -58,7 +58,10 @@
     "team": "Команда",
     "billing": "Платежи",
     "limits": "Ограничения",
-    "settings": "Настройки"
+    "settings": "Настройки",
+    "charts": "Диаграммы",
+    "message-statistics": "Статистика Сообщений",
+    "form-statistics": "Статистика Форм"
   },
   "dashboard": {
     "newForms": "Новые формы",

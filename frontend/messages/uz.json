@@ -59,7 +59,10 @@
     "team": "Jamoa",
     "billing": "Hisob-kitob",
     "limits": "Cheklovlar",
-    "settings": "Sozlamalar"
+    "settings": "Sozlamalar",
+    "charts": "Jadvallar",
+    "message-statistics": "Xabar Statistikasi",
+    "form-statistics": "Статистика Форм"
   },
   "dashboard": {
     "newForms": "Yangi formlar",

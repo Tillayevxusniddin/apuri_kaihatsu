@@ -8,6 +8,7 @@ import {
   Contact,
   MessageCircle,
   ShieldCheck,
+  Pencil
 } from "lucide-react";
 import { onlyAdminPathNameRegex } from "@/middleware";
 import NavLink from "./NavLink";
@@ -17,21 +18,21 @@ import { User } from "next-auth";
 const navLinks = [
   {
     id: 1,
-    href: "/dashboard",
+    href: "/introduction",
     icon: Home,
-    nameKey: "dashboard",
+    nameKey: "introduction",
   },
   {
     id: 2,
     href: "/forms/list",
-    icon: LineChart,
+    icon: BookCheck,
     nameKey: "all-forms",
     // badge: 0,
   },
   {
     id:3,
     href: "/forms",
-    icon: BookCheck,
+    icon: Pencil,
     nameKey: "forms",
     badge: 0,
   },
@@ -71,12 +72,12 @@ const navLinks = [
     icon: ShieldCheck,
     nameKey: "admins",
   },
-  /* {
-    id: 9,
-    href: "#",
+   {
+    id: 10,
+    href: "/charts",
     icon: LineChart,
     nameKey: "analytics",
-  },*/
+  }
 ];
 const NavLinks = ({ user }: { user: User }) => {
   const t = useTranslations("nav");

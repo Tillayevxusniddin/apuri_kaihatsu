@@ -40,6 +40,9 @@ export function NavMain({
           <Collapsible
             key={item.title}
             asChild
+            onClick={()=>{
+              item.isActive = true
+            }}
             defaultOpen={item.isActive}
             className="group/collapsible"
           >

@@ -29,139 +29,6 @@ import { url } from "inspector"
 import { useTranslations } from "next-intl"
 import {usePathname} from "@/navigation";
 
-// This is sample data.
-// const data = {
-//   user: {
-//     name: "shadcn",
-//     email: "m@example.com",
-//     avatar: "/avatars/shadcn.jpg",
-//   },
-//   teams: [
-//     {
-//       name: "Acme Inc",
-//       logo: GalleryVerticalEnd,
-//       plan: "Enterprise",
-//     },
-//     {
-//       name: "Acme Corp.",
-//       logo: AudioWaveform,
-//       plan: "Startup",
-//     },
-//     {
-//       name: "Evil Corp.",
-//       logo: Command,
-//       plan: "Free",
-//     },
-//   ],
-//   navMain: [
-//     {
-//       title: "dashboard",
-//       url: "/dashboard",
-//       icon: SquareTerminal,
-//       isActive: true,
-//       items: [
-//         {
-//           title: "Messages",
-//           url: "/messages",
-//         },
-//         {
-//           title: "Students",
-//           url: "/students",
-//         },
-//         {
-//           title: "Groups",
-//           url: "/groups",
-//         },
-//         {
-//           title: "Parents",
-//           url:"/parents",
-//         },
-//         {
-//           title:"Admins",
-//           url:"/admins",
-//         }
-//       ],
-//     },
-//     {
-//       title: "Form",
-//       url: "#",
-//       icon: Bot,
-//       items: [
-//         {
-//           title: "Form-page",
-//           url: "/forms",
-//         },
-//         {
-//           title: "All-forms",
-//           url: "/forms/list",
-//         },
-//       ],
-//     },
-//     {
-//       title: "Documentation",
-//       url: "#",
-//       icon: BookOpen,
-//       items: [
-//         {
-//           title: "Introduction",
-//           url: "#",
-//         },
-//         {
-//           title: "Get Started",
-//           url: "#",
-//         },
-//         {
-//           title: "Tutorials",
-//           url: "#",
-//         },
-//         {
-//           title: "Changelog",
-//           url: "#",
-//         },
-//       ],
-//     },
-//     {
-//       title: "Settings",
-//       url: "#",
-//       icon: Settings2,
-//       items: [
-//         {
-//           title: "General",
-//           url: "#",
-//         },
-//         {
-//           title: "Team",
-//           url: "#",
-//         },
-//         {
-//           title: "Billing",
-//           url: "#",
-//         },
-//         {
-//           title: "Limits",
-//           url: "#",
-//         },
-//       ],
-//     },
-//   ],
-//   projects: [
-//     {
-//       name: "Design Engineering",
-//       url: "#",
-//       icon: Frame,
-//     },
-//     {
-//       name: "Sales & Marketing",
-//       url: "#",
-//       icon: PieChart,
-//     },
-//     {
-//       name: "Travel",
-//       url: "#",
-//       icon: Map,
-//     },
-//   ],
-// }
 
 const data = {
   user: {
@@ -195,22 +62,36 @@ const data = {
         {
           key: "messages", // "key" orqali tarjima qilish
           url: "/messages",
+          parent: "/dashboard",
+        },
+        {
+          key: "charts", // "key" orqali tarjima qilish
+          url: "/charts",
+          parent: "/dashboard",
         },
         {
           key: "students",
           url: "/students",
+          parent: "/dashboard",
+
         },
         {
           key: "groups",
           url: "/groups",
+          parent: "/dashboard",
+
         },
         {
           key: "parents",
           url: "/parents",
+          parent: "/dashboard",
+
         },
         {
           key: "admins",
           url: "/admins",
+          parent: "/dashboard",
+
         },
       ],
     },
@@ -222,33 +103,39 @@ const data = {
         {
           key: "form-page", // "key" orqali tarjima qilish
           url: "/forms",
+          parent: "#",
         },
         {
           key: "all-forms",
           url: "/forms/list",
+          parent: "#",
         },
       ],
     },
     {
-      key: "documentation",
-      url: "#",
+      key: "introduction",
+      url: "/name",
       icon: BookOpen,
       items: [
         {
           key: "introduction", // "key" orqali tarjima qilish
-          url: "#",
+          url: "/introduction",
+          parent: "/name"
         },
         {
           key: "get-started",
           url: "#",
+          parent: "/name"
         },
         {
           key: "tutorials",
           url: "#",
+          parent: "/name"
         },
         {
           key: "changelog",
           url: "#",
+          parent: "/name"
         },
       ],
     },
@@ -300,9 +187,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const t = useTranslations("nav");
   const pathname = usePathname();
 
-  const getActiveState = (url: string) => {
-    console.log(pathname, url)
-    return pathname === url;
+  const getActiveState = (url: string, items: any[]): boolean => {
+    console.log("Current Pathname:", pathname, "Parent URL:", url, "Items:", items);
+
+    // Find the item whose URL matches the current pathname
+    const matchedItem = items?.find((item: { url: string }) => item?.url === pathname);
+
+    // Check if the parent of the matched item equals the given URL
+    return matchedItem?.parent === url;
   };
 
   return (
@@ -315,11 +207,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           items={data.navMain.map((navItem) => ({
             ...navItem,
             title: t(navItem.key),  // Translate the title
-            isActive: getActiveState(navItem.url), // Set isActive based on the current pathname
+            isActive: getActiveState(navItem.url , navItem.items), // Set isActive based on the current pathname
             items: navItem.items.map((item) => ({
               ...item,
               title: t(item.key), // Translate each item's title
-              isActive: getActiveState(item.url), // Set isActive for each item
+              isActive: false, // Set isActive for each item
             })),
           }))}
         />

@@ -58,7 +58,10 @@
     "team":"Team",
     "billing":"Billing",
     "limits":"Limits",
-    "settings":"Settings" 
+    "settings":"Settings",
+    "charts": "Charts",
+    "message-statistics": "Message Statistics",
+    "form-statistics": "Form Statistics"
   },
   "dashboard": {
     "newForms": "New Forms",
