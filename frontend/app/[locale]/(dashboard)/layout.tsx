@@ -138,6 +138,7 @@
 
 //// Sinab ko'riladigan qism  ↓
 
+
 "use client";
 
 import { Link } from "@/navigation";
@@ -231,19 +232,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     <div className="text-gray-600">{user?.email}</div>
                   </div>
                 </DropdownMenuLabel>
-                <DropdownMenuSeparator />
+                <DropdownMenuSeparator/>
                 <DropdownMenuItem>{t("settings")}</DropdownMenuItem>
                 <DropdownMenuItem>{t("support")}</DropdownMenuItem>
-                <DropdownMenuSeparator />
+                <DropdownMenuSeparator/>
+                <div className="flex gap-2">
+                  <LanguageSelect/>
+                  <ToggleMode/>
+                </div>
                 <DropdownMenuItem onClick={async () => await signOut()}>
                   {t("logout")}
                 </DropdownMenuItem>
                 <div className="sm:hidden">
-                  <DropdownMenuSeparator />
-                  <div className="flex gap-2">
-                    <LanguageSelect />
-                    <ToggleMode />
-                  </div>
+                  <DropdownMenuSeparator/>
+
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -252,6 +254,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <main className="flex-1 p-4 lg:p-6">{children}</main>
       </SidebarInset>
     </div>
-  
+
   );
 }

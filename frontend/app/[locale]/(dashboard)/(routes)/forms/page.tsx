@@ -22,12 +22,12 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-4">
-      <div className="flex justify-between">
-        <h1 className="text-3xl w-2/4 font-bold">{t("forms")}</h1>
-        <Link href={`${pathName}/list`}>
-          <Button>{t("allForms")}</Button>
-        </Link>
-      </div>
+      {/*<div className="flex justify-between">*/}
+      {/*  <h1 className="text-3xl w-2/4 font-bold">{t("forms")}</h1>*/}
+      {/*  <Link href={`${pathName}/list`}>*/}
+      {/*    <Button>{t("allForms")}</Button>*/}
+      {/*  </Link>*/}
+      {/*</div>*/}
 
       {data ? (
         data?.forms?.length ? (
