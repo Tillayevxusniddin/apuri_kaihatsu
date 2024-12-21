@@ -63,6 +63,15 @@
     "message-statistics": "Message Statistics",
     "form-statistics": "Form Statistics"
   },
+  "intro": {
+    "start your journey with": "Start your journey with",
+    "administration": "A modern and efficient admin management system for Japan digital university administration.",
+    "admin page": "Admin page",
+    "get started": "Get started",
+    "fantastic theme!": "Fantastic theme!",
+    "excellent documentation": "excellent documentation",
+    "skip": "Skip"
+    },
   "dashboard": {
     "newForms": "New Forms",
     "pagination": {

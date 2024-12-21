@@ -63,6 +63,15 @@
     "message-statistics": "Статистика Сообщений",
     "form-statistics": "Статистика Форм"
   },
+  "intro": {
+    "start your journey with": "Начните свое путешествие с",
+    "administration": "Современная и эффективная система управления для  Японский цифровой университет администрирования университета.",
+    "admin page": "Административная страница",
+    "get started": "Начать",
+    "fantastic theme!": "Фантастическая тема!",
+    "excellent documentation": "Отличная документация",
+    "skip": "Пропустить"
+  },
   "dashboard": {
     "newForms": "Новые формы",
     "pagination": {

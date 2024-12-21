@@ -114,28 +114,28 @@ const data = {
     },
     {
       key: "introduction",
-      url: "/name",
+      url: "/intro",
       icon: BookOpen,
       items: [
         {
           key: "introduction", // "key" orqali tarjima qilish
           url: "/introduction",
-          parent: "/name"
+          parent: "/intro"
         },
         {
           key: "get-started",
-          url: "#",
-          parent: "/name"
+          url: "/getstarted",
+          parent: "/intro"
         },
         {
           key: "tutorials",
-          url: "#",
-          parent: "/name"
+          url: "/tutorial",
+          parent: "/intro"
         },
         {
           key: "changelog",
           url: "#",
-          parent: "/name"
+          parent: "/intro"
         },
       ],
     },
@@ -229,119 +229,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 }
 
 
-//
-// "use client"
-//
-// import * as React from "react"
-// import { AudioWaveform, BookOpen, Bot, Command, Frame, GalleryVerticalEnd, Map, PieChart, Settings2, SquareTerminal } from 'lucide-react'
-//
-// import { NavMain } from "@/components/nav-main"
-// import { TeamSwitcher } from "@/components/team-switcher"
-// import {
-//   Sidebar,
-//   SidebarContent,
-//   SidebarHeader,
-//   SidebarRail,
-// } from "@/components/ui/sidebar"
-// import { useTranslations } from "next-intl"
-// import { usePathname } from "@/navigation"
-//
-// const data = {
-//   teams: [
-//     {
-//       name: "Acme Inc",
-//       logo: GalleryVerticalEnd,
-//       plan: "Enterprise",
-//     },
-//     {
-//       name: "Acme Corp.",
-//       logo: AudioWaveform,
-//       plan: "Startup",
-//     },
-//     {
-//       name: "Evil Corp.",
-//       logo: Command,
-//       plan: "Free",
-//     },
-//   ],
-//   navMain: [
-//     {
-//       key: "dashboard",
-//       url: "/dashboard",
-//       icon: SquareTerminal,
-//       items: [
-//         { key: "messages", url: "/messages", parent: "/dashboard" },
-//         { key: "charts", url: "/charts", parent: "/dashboard" },
-//         { key: "students", url: "/students", parent: "/dashboard" },
-//         { key: "groups", url: "/groups", parent: "/dashboard" },
-//         { key: "parents", url: "/parents", parent: "/dashboard" },
-//         { key: "admins", url: "/admins", parent: "/dashboard" },
-//       ],
-//     },
-//     {
-//       key: "forms",
-//       url: "#",
-//       icon: Bot,
-//       items: [
-//         { key: "form-page", url: "/forms", parent: "#" },
-//         { key: "all-forms", url: "/forms/list", parent: "#" },
-//       ],
-//     },
-//     {
-//       key: "introduction",
-//       url: "/name",
-//       icon: BookOpen,
-//       items: [
-//         { key: "introduction", url: "/introduction", parent: "/name" },
-//         { key: "get-started", url: "#", parent: "/name" },
-//         { key: "tutorials", url: "#", parent: "/name" },
-//         { key: "changelog", url: "#", parent: "/name" },
-//       ],
-//     },
-//     {
-//       key: "settings",
-//       url: "#",
-//       icon: Settings2,
-//       items: [
-//         { key: "general", url: "#" },
-//         { key: "team", url: "#" },
-//         { key: "billing", url: "#" },
-//         { key: "limits", url: "#" },
-//       ],
-//     },
-//   ],
-// }
-//
-// export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-//   const t = useTranslations("nav")
-//   const pathname = usePathname()
-//
-//   const getActiveState = (url: string, items: any[]): boolean => {
-//     const matchedItem = items?.find((item: { url: string }) => item?.url === pathname)
-//     return matchedItem?.parent === url
-//   }
-//
-//   return (
-//     <Sidebar collapsible="icon" {...props}>
-//       <SidebarHeader>
-//         <TeamSwitcher teams={data.teams} />
-//       </SidebarHeader>
-//       <SidebarContent>
-//         <NavMain
-//           items={data.navMain.map((navItem) => ({
-//             ...navItem,
-//             title: t(navItem.key),
-//             isActive: getActiveState(navItem.url, navItem.items),
-//             items: navItem.items.map((item) => ({
-//               ...item,
-//               title: t(item.key),
-//               isActive: false,
-//             })),
-//           }))}
-//         />
-//       </SidebarContent>
-//       <SidebarRail />
-//     </Sidebar>
-//   )
-// }
-//
+
+
+
+
+
+
+
+

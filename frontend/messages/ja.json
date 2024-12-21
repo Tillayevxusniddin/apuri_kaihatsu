@@ -64,6 +64,16 @@
     "message-statistics": "メッセージ統計",
     "form-statistics": "フォーム統計"
   },
+  "intro": {
+    "start your journey with": "ここで旅を始めよう　",
+    "administration": "日本デジタル大学の管理のための現代的で効率的な管理システム。",
+    "admin page": "管理ページ",
+    "get started": "始める",
+    "fantastic theme!": "素晴らしいテーマ！",
+    "excellent documentation": "優れたドキュメント",
+    "skip": "スキップ"
+  },
+
   "dashboard": {
     "newForms": "新しいフォーム",
     "pagination": {

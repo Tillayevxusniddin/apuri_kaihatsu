@@ -64,6 +64,15 @@
     "message-statistics": "Xabar Statistikasi",
     "form-statistics": "Статистика Форм"
   },
+  "intro": {
+    "start your journey with": "Safaringizni boshlang",
+    "administration": "Japan digital universiteti boshqaruvi uchun zamonaviy va samarali boshqaruv tizimi.",
+    "admin page": "Boshqaruv sahifasi",
+    "get started": "Boshlash",
+    "fantastic theme!": "Ajoyib mavzu!",
+    "excellent documentation": "Mukammal hujjatlar",
+    "skip": "O'tkazib yuborish"
+  },
   "dashboard": {
     "newForms": "Yangi formlar",
     "pagination": {
