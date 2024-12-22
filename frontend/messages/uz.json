@@ -49,7 +49,7 @@
     "messages": "Xabarlar",
     "admins": "Adminlar",
     "form-page": "Formalar sahifasi",
-    "all-forms": "Barcha shakllar",
+    "all-forms": "Barcha formlar",
     "documentation": "Hujjatlar",
     "introduction": "Kirish",
     "get-started": "Boshlash",
@@ -63,6 +63,7 @@
     "charts": "Jadvallar",
     "message-statistics": "Xabar Statistikasi",
     "form-statistics": "Статистика Форм"
+
   },
   "intro": {
     "start your journey with": "Safaringizni boshlang",
@@ -73,6 +74,53 @@
     "excellent documentation": "Mukammal hujjatlar",
     "skip": "O'tkazib yuborish"
   },
+  "getstart": {
+    "h1welcome": "Ta'limni boshqarish tizimiga xush kelibsiz",
+    "ptexts": "Ta'limni boshqarish tizimi (EMS) universitetning ma'muriy ishlarini optimallashtirish va soddalashtirish uchun mo'ljallangan. Oson ishlatiladigan interfeys va kuchli funksiyalar bilan siz kurslar, talabalar, o'qituvchilar va boshqa ko'plab narsalarni boshqarishingiz mumkin!",
+    "parents": "Ota-onalar",
+    "parents-text": "Ota-onalarga xabar yuboring, ularning profillarini yangilang va ularning ma'lumotlari bilan bog'liq turli vazifalarni bajaring. Ota-onalarni ularning farzandlarining yutuqlari haqida xabardor qilib turing va oson muloqotni ta'minlang.",
+    "track-students": "Talabalarni kuzatish",
+    "track-text": "Talabalarining baholarini, davomiyligini, ish faoliyatini va umumiy rivojlanishini kompleks boshqaruv panellari, batafsil hisobotlar va tahlillar yordamida kuzating, ma'lumotlarga asoslangan qarorlar qabul qiling.",
+    "management": "Boshqaruv",
+    "management-text": "Administratorlarni oson boshqaring, rollarni tayinlang va ish jadvalini kuzatib boring. Interfaol diagrammalar orqali natijalarni ko'ring va ishlash samaradorligi haqida ma'lumot oling. Ish jarayonini soddalashtirish uchun qulay funksiyalarni ishlating.",
+    "buttontutorial": "O'quv qo'llanmalarini hoziroq ochish",
+    "img-h1": "Ota-onalarni qo‘llab-quvvatlaymiz",
+    "img-p": "Birgalikda yorqin kelajakni tarbiyalaymiz",
+    "d-title": "To‘g‘ridan-to‘g‘ri muloqot",
+    "d-description": "Farzandlarining ta’limi va rivojlanishi haqida ota-onalarga shaxsiy xabarlar yuboring.",
+    "e-title": "Tadbirlarni rejalashtirish",
+    "e-description": "Ota-onalarni maktab tadbirlari, ota-ona va o‘qituvchi uchrashuvlari hamda seminarlariga taklif qiling.",
+    "c-title": "Yutuqlarni nishonlash",
+    "c-description": "O‘quvchilarning muvaffaqiyatlarini to‘g‘ridan-to‘g‘ri faxrli ota-onalar bilan baham ko‘ring va nishonlang.",
+    "parent-testmon": "Ota-onalar fikri",
+    "parent-comment": "\"Bu platforma farzandimizning ta’limiga bo‘lgan ishtirokimizni o‘zgartirdi. O‘zimizni ilgari hech qachon bo‘lmagan darajada bog‘langan va xabardor his qilyapmiz!\"",
+    "parent-name": "- Saraning ota-onasi"
+  },
+  "tutor": {
+    "h1title": "O'quv qo'llanmalar",
+    "p-subtitle": "Eng muhim bo'limlar",
+    "message-t": "Xabarlar",
+    "message-d": "Guruhlar yoki talabalar uchun xabarlarni yozishni va boshqarishni o'rganing.",
+    "message-c": "Ushbu qo'llanma guruhlar yoki talabalar uchun xabarlar yaratish, yuborish va boshqarish jarayonini o'rganadi. Siz guruhda samarali muloqot qilishni, takrorlanuvchi vazifalar uchun xabarlar shablonlarini yaratishni va xabarlaringizni aniq va yaxshi tashkil etishni o'rganasiz. Shuningdek, bu qo'llanma kiruvchi va chiquvchi xabarlarni boshqarishni, shu jumladan xabarlarni filtrlaydi, saralaydi va kerak bo'lsa, o'chirishni ko'rib chiqadi.",
+    "student-t": "Talabalar",
+    "student-d": "Talaba yozuvlarini CRUD amaliyotlari bilan yaratish va boshqarish.",
+    "student-c": "Ushbu qo'llanmada siz talabalar yozuvlarini yaratishni, o'qishni, yangilashni va o'chirishni o'rganasiz. Biz sizni talabalar ma'lumotlar bazasini sozlashdan tortib, foydalanuvchi interfeysi orqali CRUD amaliyotlarini amalga oshirishgacha bo'lgan jarayonni ko'rsatamiz. Shuningdek, talabalar ma'lumotlarini tekshirishni va ularning to'g'riligini ta'minlashni o'rganasiz. Boshqa tomondan, biz talabalar ma'lumotlarini xavfsiz va samarali boshqarishning eng yaxshi amaliyotlarini ko'rib chiqamiz va ma'lumotlarni osongina topish uchun qanday tartibga solishni o'rganamiz.",
+    "groups-t": "Guruhlar",
+    "groups-d": "Guruhlarni CRUD amaliyotlari bilan yaratish va boshqarish.",
+    "groups-c": "Ushbu qo'llanma guruhlar yaratish va boshqarish, guruh ma'lumotlarida CRUD amaliyotlarini amalga oshirish, hamda guruhlar orasidagi muloqotni boshqarish bo'yicha tavsiyalar beradi. Siz guruhlarni turli kategoriyalar bo'yicha, masalan, sinflar, fakultetlar yoki maxsus loyihalar asosida tashkil qilishni o'rganasiz. Shuningdek, guruh sozlamalarini o'zgartirishni, a'zolarni qo'shish yoki olib tashlashni va kerak bo'lsa, butun guruhlarni o'chirishni o'rganasiz. Ushbu darslikni yakunlaganingizda, guruhlarni samarali boshqarishni o'rganasiz.",
+    "parents-t": "Ota-onalar",
+    "parents-d": "Ota-ona profillarini CRUD amaliyotlari bilan yaratish va boshqarish.",
+    "parents-c": "Ushbu qo'llanmada siz ota-ona profillarini yaratishni va boshqarishni, shu jumladan, ular bilan CRUD amaliyotlarini amalga oshirishni o'rganasiz. Biz ota-onalar haqida zarur ma'lumotlarni to'plashni, ularning bog'lanish ma'lumotlari, talabalar bilan aloqalari va muloqot preferensiyalarini qanday kiritishni ko'rsatamiz. Shuningdek, ota-ona profillarini yangilashni va o'chirishni o'rganasiz. Bu qo'llanma, ota-onalar ma'lumotlarini talabalar yozuvlari bilan integratsiya qilishni o'rganishga yordam beradi, bu esa ta'lim jarayonida muloqotni va ishtirokni kuchaytiradi.",
+    "admins-t": "Administratorlar",
+    "admins-d": "Administrator rollarini boshqarish va CRUD amaliyotlari.",
+    "admins-c": "Ushbu qo'llanmada administrator rollarini boshqarishni o'rganasiz. Siz administrator profillarini yaratishni, rollarni tayinlashni va administratorlar uchun ruxsatlarni boshqarishni o'rganasiz. Shuningdek, administrator ma'lumotlarida CRUD amaliyotlarini amalga oshirishni o'rganasiz, bu esa sizga kirish huquqlarini boshqarish, administratorlar ma'lumotlarini yangilash va kerak bo'lsa, profillarni o'chirish imkonini beradi. Bundan tashqari, administrator hisoblarini xavfsiz boshqarish va administratorlar bilan bog'liq vazifalarni samarali va xavfsiz tarzda bajarishning eng yaxshi amaliyotlarini ko'rib chiqamiz.",
+    "forms-t": "Formalar",
+    "forms-d": "Reactda forma ma'lumotlarini olish va tekshirish.",
+    "forms-c": "Ushbu qo'llanmada siz Reactda forma yaratish, tekshirish va yuborishni o'rganasiz. Biz foydalanuvchi kiritgan barcha ma'lumotlarning to'g'ri va kerakli formatda ekanligini ta'minlash uchun ma'lumotlarni tekshirishni o'rgatamiz. Shuningdek, dinamik forma elementlarini boshqarishni, holatni kuzatishni va forma ma'lumotlari yo'qolishining oldini olishni o'rganasiz. Ushbu darslikni tugatganingizda, foydalanuvchi ma'lumotlarini samarali boshqarishni va forma yuborishlarini osonlik bilan amalga oshirishni bilasiz.",
+    "close": "Yopish"
+  },
+
+
   "dashboard": {
     "newForms": "Yangi formlar",
     "pagination": {

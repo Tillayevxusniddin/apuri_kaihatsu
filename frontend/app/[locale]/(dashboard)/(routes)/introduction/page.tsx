@@ -1,69 +1,3 @@
-// import React from "react";
-// import { Link } from "@/navigation";
-//
-//
-// const IntroductionPage: React.FC = () => {
-//   return (
-//     <div className="flex items-center justify-center h-screen bg-gray-50 dark:bg-gray-900 px-6">
-//       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl items-center">
-//         {/* Left Content */}
-//         <div>
-//           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-//             Start your journey with{" "}
-//             <span className="text-green-500">Introduction</span>
-//           </h1>
-//           <p className="text-gray-600 dark:text-gray-300 text-lg mb-6">
-//             A modern and efficient admin management system for seamless university administration.
-//           </p>
-//           <div className="flex gap-4">
-//             <button className="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition">
-//               Admin page
-//             </button>
-//             <Link href='/getstarted'>
-//               <button className="text-gray-700 dark:text-gray-300 underline">
-//                 Get started →
-//               </button>
-//             </Link>
-//
-//           </div>
-//         </div>
-//
-//         {/* Right Image Section */}
-//         <div className="relative">
-//           <img
-//             // src="https://via.placeholder.com/500x500"
-//             src="https://farm9.staticflickr.com/8410/30193245810_7b7ff74cd5.jpg"
-//             alt="Hero Section"
-//             className="w-full h-auto rounded-lg shadow-lg object-cover"
-//           />
-//           {/* User Comments */}
-//           <div className="absolute top-4 left-4 bg-white rounded-lg shadow p-2 flex items-center gap-2">
-//             <img
-//               src="https://via.placeholder.com/32"
-//               alt="Julia"
-//               className="w-8 h-8 rounded-full"
-//             />
-//             <p className="text-sm font-medium text-gray-800">Julia</p>
-//             <span className="text-gray-600 text-sm">Fantastic theme!</span>
-//           </div>
-//           <div className="absolute bottom-4 left-8 bg-orange-500 text-white rounded-lg shadow p-2 flex items-center gap-2">
-//             <img
-//               src="https://via.placeholder.com/32"
-//               alt="Michael"
-//               className="w-8 h-8 rounded-full"
-//             />
-//             <p className="text-sm font-medium">Michael</p>
-//             <span className="text-sm">Excellent documentation 👏</span>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-//
-// export default IntroductionPage;
-
-
 "use client"
 
 import React from "react";
@@ -71,11 +5,16 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 import { motion } from "framer-motion";
 import { ArrowRight } from 'lucide-react';
+import {useActiveState} from "@/hooks/useActiveState";
 
 const IntroductionPage: React.FC = () => {
   const i = useTranslations("intro");
   const t = useTranslations("nav");
+  const { pathname , getActiveState } = useActiveState();
 
+  const isMessagesActive = getActiveState("/messages", [
+    {url: "/messages", parent: "/dashboard"},
+  ])
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-green-400 to-blue-500 dark:from-green-800 dark:to-blue-900 px-6 py-12">
       <motion.div
@@ -108,11 +47,11 @@ const IntroductionPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
-            <Link href="/messages">
+            <a href="/messages">
               <button className="bg-white text-green-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-100 transition duration-300 transform hover:scale-105">
                 {i("skip")}
               </button>
-            </Link>
+            </a>
             <Link href='/getstarted'>
               <button className="text-white text-lg font-semibold flex items-center group">
                 {i("get started")}
@@ -174,3 +113,6 @@ const IntroductionPage: React.FC = () => {
 };
 
 export default IntroductionPage;
+
+
+

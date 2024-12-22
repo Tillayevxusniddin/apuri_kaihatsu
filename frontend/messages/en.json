@@ -37,6 +37,7 @@
     }
   },
   "nav": {
+
     "dashboard": "Dashboard",
     "info": "Info",
     "permissions": "Permissions",
@@ -62,6 +63,7 @@
     "charts": "Charts",
     "message-statistics": "Message Statistics",
     "form-statistics": "Form Statistics"
+
   },
   "intro": {
     "start your journey with": "Start your journey with",
@@ -72,6 +74,51 @@
     "excellent documentation": "excellent documentation",
     "skip": "Skip"
     },
+  "getstart": {
+    "h1welcome":"Welcome to the Education Management System",
+    "ptexts":"The Education Management System (EMS) is designed to streamline and optimize university administrative tasks. With an easy-to-use interface and powerful features, you can manage courses, students, staff, and more!",
+    "parents": "Parents",
+    "parents-text": "Send messages to parents, update their profiles, and perform various tasks related to their data management. Keep parents informed about their children's progress and ensure smooth communication.",
+    "track-students":"Track Students",
+    "track-text": "Keep track of students' grades, attendance, performance, and overall progress with comprehensive dashboards, detailed reports, and analytics to make data-driven decisions.",
+    "management":"Management",
+    "management-text": "Easily manage admins, assign roles, and track work schedules. View results through interactive charts and gain insights into performance. Enjoy convenient features to streamline your workflow.",
+    "buttontutorial": "Open Tutorials Now",
+    "img-h1": "Empowering Parents",
+    "img-p": "Together, we nurture bright futures",
+    "d-title": "Direct Communication",
+    "d-description": "Send personalized messages to parents about their child's education and development.",
+    "e-title": "Event Planning",
+    "e-description": "Organize and invite parents to school events, parent-teacher conferences, and workshops.",
+    "c-title": "Celebrate Achievements",
+    "c-description": "Share and celebrate student accomplishments directly with proud parents.",
+    "parent-testmon": "Parent Testimonial",
+    "parent-comment": "\"This platform has transformed our involvement in our child's education. We feel more connected and informed than ever before!\"",
+    "parent-name": "- Sarah's Parents"
+  },
+  "tutor": {
+    "h1title": "Tutorials",
+    "p-subtitle": "The most important sections",
+    "message-t": "Messages",
+    "message-d": "Learn to write and manage messages for groups or students.",
+    "message-c": "This tutorial covers the process of creating, sending, and managing messages for groups or students. You will learn how to effectively communicate within a group setting, how to create message templates for repetitive tasks, and how to ensure your messages are clear and well-organized. Additionally, this guide will cover how to manage incoming and outgoing communications, including filtering, sorting, and deleting messages as needed.",
+    "student-t": "Students",
+    "student-d": "Create and manage student records with CRUD operations.",
+    "student-c": "In this tutorial, you'll learn how to create, read, update, and delete student records in a database. We'll walk you through the entire process, from setting up a student database to implementing CRUD operations through a user-friendly interface. You will also learn how to validate student data to ensure accuracy and consistency. Furthermore, we will cover best practices for managing student data securely and efficiently, and how to organize the data for easy retrieval.",
+    "groups-t": "Groups",
+    "groups-d": "Create and manage groups with CRUD operations.",
+    "groups-c": "This tutorial focuses on how to create and manage groups, perform CRUD operations on group data, and handle tasks related to group communication. You'll learn how to set up groups based on different categories such as classes, departments, or special projects. Additionally, we’ll cover how to modify group settings, add or remove members, and delete entire groups if necessary. By the end of this tutorial, you'll be able to organize and manage groups effectively within your system.",
+    "parents-t": "Parents",
+    "parents-d": "Create and manage parent profiles with CRUD operations.",
+    "parents-c": "In this tutorial, you'll learn how to create and manage parent profiles within a system, including performing CRUD operations on their data. We'll cover how to capture essential parent information such as contact details, relationships to students, and preferences for communication. You'll also learn how to update and delete parent profiles, ensuring the data remains up-to-date. This guide will help you understand how to integrate parent data with student records to enhance communication and involvement in the educational process.",
+    "admins-t": "Admins",
+    "admins-d": "Manage admin roles and CRUD operations.",
+    "admins-c": "This tutorial will guide you through the process of managing admin roles within your system. You'll learn how to create admin profiles, assign roles, and handle admin permissions to ensure effective application administration. We'll also cover how to perform CRUD operations on admin data, enabling you to manage access, update admin details, and delete profiles when necessary. Additionally, we will discuss best practices for securing admin accounts and managing admin-related tasks in a secure and organized manner.",
+    "forms-t": "Forms",
+    "forms-d": "Handle form inputs and validation in React.",
+    "forms-c": "In this tutorial, you'll cover everything you need to know about handling forms in React, including how to create, validate, and manage form submissions. We’ll teach you how to implement input validation to ensure that all user-provided data is correct and meets the required format. The tutorial also dives into handling dynamic form inputs, managing state, and preventing common issues like form data loss. By the end of this tutorial, you'll know how to manage user inputs efficiently and handle form submissions with ease.",
+    "close": "Close"
+  },
   "dashboard": {
     "newForms": "New Forms",
     "pagination": {
