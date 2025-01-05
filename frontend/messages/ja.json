@@ -73,7 +73,14 @@
     "get started": "始める",
     "fantastic theme!": "素晴らしいテーマ！",
     "excellent documentation": "優れたドキュメント",
-    "skip": "スキップ"
+    "skip": "イントロをスキップ",
+    "learn-more": "もっと知る",
+    "welcome": "ようこそ",
+    "welcomeDescription": "私たちの教育管理システムへ",
+    "messages": "メッセージセクション",
+    "messagesDescription": "これらのメッセージを送信できます",
+    "admin": "管理者は",
+    "adminDescription": "すべてのプロセスを管理し、保護者と連絡を取ります"
   },
   "getstart": {
     "h1welcome": "教育管理システムへようこそ",

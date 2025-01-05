@@ -72,7 +72,15 @@
     "get started": "Get started",
     "fantastic theme!": "Fantastic theme!",
     "excellent documentation": "excellent documentation",
-    "skip": "Skip"
+    "skip": "Skip Introduction",
+    "learn-more": "Learn More",
+    "welcome": "Welcome to",
+    "welcomeDescription": "Our Education Management System",
+    "messages": "The Messages Section",
+    "messagesDescription": "allows you to send these messages",
+    "admin": "Admin You control",
+    "adminDescription": "all processes and communicate with Parents"
+
     },
   "getstart": {
     "h1welcome":"Welcome to the Education Management System",

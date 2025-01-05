@@ -72,7 +72,14 @@
     "get started": "Boshlash",
     "fantastic theme!": "Ajoyib mavzu!",
     "excellent documentation": "Mukammal hujjatlar",
-    "skip": "O'tkazib yuborish"
+    "skip": "Kirishni o'tkazib yuborish",
+    "learn-more": "Batafsil ma'lumot",
+    "welcome": "Xush kelibsiz",
+    "welcomeDescription": "Bizning ta'lim boshqaruv tizimimizga",
+    "messages": "Xabarlar bo‘limi",
+    "messagesDescription": "sizga ushbu xabarlarni yuborish imkonini beradi",
+    "admin": "Admin Siz nazorat qilasiz",
+    "adminDescription": "barcha jarayonlarni va ota-onalar bilan muloqot qilasiz"
   },
   "getstart": {
     "h1welcome": "Ta'limni boshqarish tizimiga xush kelibsiz",
