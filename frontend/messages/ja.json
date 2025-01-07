@@ -575,7 +575,10 @@
     "doYouDeleteAdmin": "この管理者を削除しますか？",
     "close": "閉じる",
     "confirm": "確認する",
-    "adminDeleted": "管理者が削除されました"
+    "adminDeleted": "管理者が削除されました",
+    "adminDescription": "管理者アカウントの管理と監視",
+    "adminList": "管理者リスト",
+    "export": "エクスポート"
   },
   "CreateAdmin": {
     "CreateAdmin": "管理者を作成",

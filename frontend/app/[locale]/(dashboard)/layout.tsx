@@ -182,7 +182,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/*    </nav>*/}
           {/*  </SheetContent>*/}
           {/*</Sheet>*/}
-          <Sheet>
+          <Sheet modal={false}>
             <SheetTrigger asChild>
               <Button
                 variant="outline"

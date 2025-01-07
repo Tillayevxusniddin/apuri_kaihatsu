@@ -546,7 +546,7 @@
     "editParent": "Edit Parent"
   },
   "ThisAdmin": {
-    "AdminView": "Admin ko'rinishi",
+    "AdminView": "Admin tafsilotlari",
     "back": "Orqaga",
     "adminGivenName": "Admin ismi",
     "adminFamilyName": "Admin familiyasi",
@@ -575,7 +575,10 @@
     "doYouDeleteAdmin": "Rostdan ham bu Adminni o'chirmoqchimisiz?",
     "close": "Bekor qilish",
     "confirm": "Tasdiqlash",
-    "adminDeleted": "Admin muvaffaqiyatli o'chirildi"
+    "adminDeleted": "Admin muvaffaqiyatli o'chirildi",
+    "adminDescription": "Administrator hisoblarini boshqarish va nazorat qilish",
+    "adminList": "Administratorlar ro‘yxati",
+    "export": "Eksport"
   },
   "CreateAdmin": {
     "CreateAdmin": "Admin yaratish",

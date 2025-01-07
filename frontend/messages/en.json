@@ -546,7 +546,7 @@
     "editParent": "Edit Parent"
   },
   "ThisAdmin": {
-    "AdminView": "Admin View",
+    "AdminView": "Admin's Detail",
     "back": "Back",
     "adminGivenName": "Admin's Given Name",
     "adminFamilyName": "Admin's Family Name",
@@ -559,7 +559,21 @@
     "Phone_number": "Phone Number",
     "Ststudent_number": "Student Number",
     "editStudents": "Edit Students",
-    "editAdmin": "Edit Admin"
+    "editAdmin": "Edit Admin",
+    "canEdit": "Can Edit",
+    "canDelete": "Can Delete",
+    "canCreate": "Can Create",
+    "canViewReports": "Can View Reports",
+    "canManageUsers": "Can Manage Users",
+    "Permission": "Permission",
+    "Permissions": "Permissions",
+    "Status": "Status",
+    "Toggle": "Toggle",
+    "enabled": "enabled",
+    "disabled": "disabled",
+    "AdminInformation": "About admin",
+    "QuickActions": "Quick Actions",
+    "deleteAdmin": "Delete Admin"
   },
   "admins": {
     "admins": "Admins",
@@ -575,7 +589,12 @@
     "doYouDeleteAdmin": "Do you really want to delete this Admin?",
     "close": "Close",
     "confirm": "Confirm",
-    "adminDeleted": "Admin Deleted Successfully"
+    "adminDeleted": "Admin Deleted Successfully",
+    "adminDescription": "Manage and oversee administrator accounts",
+    "adminList": "Administrator List",
+    "export": "Export",
+    "viewDetails": "View Details"
+
   },
   "CreateAdmin": {
     "CreateAdmin": "Create Admin",

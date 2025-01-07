@@ -220,7 +220,7 @@ const NavLinks = ({ user }: { user: User }) => {
         <Separator className="mb-4"/>
         <div className="space-y-4 px-2">
           {/*<LanguageSelect />*/}
-          <DropdownMenu>
+          <DropdownMenu >
             <DropdownMenuTrigger asChild>
               <Button variant="secondary" className="w-full justify-start">
                 <CircleUser className="mr-2 h-4 w-4"/>
