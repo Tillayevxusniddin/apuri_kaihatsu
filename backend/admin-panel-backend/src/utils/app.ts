@@ -10,13 +10,20 @@ class App {
         this.app = express()
 
         this.app.use(express.json());
-        this.app.use(cors({
-            origin: '*',
-            methods: 'GET,HEAD,PUT,POST,DELETE',
+        this.app.use(
+          cors({
+            origin: "http://localhost:3000",
+            methods: "GET,HEAD,PUT,POST,DELETE",
             credentials: true,
             optionsSuccessStatus: 204,
-            exposedHeaders: ['Content-Disposition']
-        }));
+            exposedHeaders: ["Content-Disposition"],
+            allowedHeaders: [
+              "Content-Type",
+              "Authorization",
+              "X-Custom-Header",
+            ],
+          })
+        );
 
         routes.forEach(route => {
             if (route.path) {

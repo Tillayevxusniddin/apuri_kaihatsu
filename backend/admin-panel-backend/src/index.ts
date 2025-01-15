@@ -10,6 +10,8 @@ import PostController from './routes/post'
 import AdminController from './routes/admin'
 import GroupController from './routes/group'
 import FormController from './routes/form'
+// import SettingsController from './routes/settings'
+import ImageController from './routes/images'
 
 console.log('starting app');
 
@@ -20,7 +22,8 @@ const app = new App([
     new PostController(),
     new AdminController(),
     new GroupController(),
-    new FormController()
+    new FormController(),
+    new ImageController(),
 ]);
 
 export const handler: serverless.Handler = serverless(app.listen());

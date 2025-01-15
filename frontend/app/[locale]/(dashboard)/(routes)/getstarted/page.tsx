@@ -159,6 +159,7 @@ const GetStartedPage: React.FC = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 0.5 }}
+
         >
           <Image
             src="https://www.sunlife.co.id/content/dam/sunlife/legacy/assets/id/Life%20Moments/Building%20a%20Family/OG%20Images_L4%20Life%20Moments_Building%20a%20Family_7%20Ways%20to%20Make%20Your%20Parents%20Happy.jpg"

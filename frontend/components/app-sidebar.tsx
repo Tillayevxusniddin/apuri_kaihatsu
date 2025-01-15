@@ -151,12 +151,13 @@ const data = {
     },
     {
       key: "settings",
-      url: "#",
+      url: "/settings",
       icon: Settings2,
       items: [
         {
           key: "general", // "key" orqali tarjima qilish
-          url: "#",
+          url: "/settings",
+          parent: "/settings",
         },
         {
           key: "team",
