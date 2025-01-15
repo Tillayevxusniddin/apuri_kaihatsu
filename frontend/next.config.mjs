@@ -5,7 +5,7 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['www.sunlife.co.id'], // Ruxsat berilgan domenlarni qo'shing
+    domains: ['www.sunlife.co.id', 'i.ibb.co'], // Ruxsat berilgan domenlarni qo'shing
   },
 };
 

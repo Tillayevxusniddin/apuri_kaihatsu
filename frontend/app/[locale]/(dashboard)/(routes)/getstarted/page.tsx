@@ -106,13 +106,16 @@
 
 "use client"
 
-import React from "react"
+import React, {useEffect, useState} from "react"
 import { motion } from "framer-motion"
 import { Book, Users, BarChart, ArrowRight, MessageCircle, Calendar, Award, Smile } from 'lucide-react'
 import { Link } from "@/navigation"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
-
+import {
+  imageGetList,
+} from "@/app/[locale]/(dashboard)/(routes)/settings/actions";
+import {useSession} from "next-auth/react";
 const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
   <motion.div
     className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
@@ -126,6 +129,29 @@ const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description:
 
 const GetStartedPage: React.FC = () => {
   const i = useTranslations("getstart")
+  const [image, setImage] = useState<any>();
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (session?.sessionToken) {
+      fetchImages();
+    }
+  }, [session]);
+
+  const fetchImages = async () => {
+    try {
+      const imageList = await imageGetList(session?.sessionToken);
+      const activeImage = imageList.filter(image => image.isActive === 1)[0]
+      console.log("-------------------",activeImage)
+      setImage(activeImage)
+    } catch (error) {
+      console.error("Rasmlarni olishda xatolik yuz berdi:", error);
+    }
+  };
+
+  if(!session) return null;
+  if(!image) return null;
+
   return (
     <div className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 min-h-screen py-16 px-6">
       <motion.div
@@ -162,7 +188,8 @@ const GetStartedPage: React.FC = () => {
 
         >
           <Image
-            src="https://www.sunlife.co.id/content/dam/sunlife/legacy/assets/id/Life%20Moments/Building%20a%20Family/OG%20Images_L4%20Life%20Moments_Building%20a%20Family_7%20Ways%20to%20Make%20Your%20Parents%20Happy.jpg"
+            // src="https://www.sunlife.co.id/content/dam/sunlife/legacy/assets/id/Life%20Moments/Building%20a%20Family/OG%20Images_L4%20Life%20Moments_Building%20a%20Family_7%20Ways%20to%20Make%20Your%20Parents%20Happy.jpg"
+            src={image.url}
             alt="Happy Parents"
             layout="fill"
             objectFit="cover"

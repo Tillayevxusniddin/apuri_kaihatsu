@@ -155,7 +155,7 @@ const data = {
       icon: Settings2,
       items: [
         {
-          key: "general", // "key" orqali tarjima qilish
+          key: "Personalization", // "key" orqali tarjima qilish kerak keyinroq
           url: "/settings",
           parent: "/settings",
         },

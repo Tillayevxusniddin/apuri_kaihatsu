@@ -11,7 +11,8 @@ import AdminController from './routes/admin'
 import GroupController from './routes/group'
 import FormController from './routes/form'
 // import SettingsController from './routes/settings'
-import ImageController from './routes/images'
+// import ImageController from './routes/images'
+import ImageController from './routes/introduction'
 
 console.log('starting app');
 
