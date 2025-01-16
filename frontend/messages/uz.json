@@ -76,8 +76,8 @@
     "learn-more": "Batafsil ma'lumot",
     "welcome": "Xush kelibsiz",
     "welcomeDescription": "Bizning ta'lim boshqaruv tizimimizga",
-    "messages": "Xabarlar bo‘limi",
-    "messagesDescription": "sizga ushbu xabarlarni yuborish imkonini beradi",
+    "messages": "Xabarlar va Formalar",
+    "messagesDescription": "barchasini rejalar asosida amalga oshiring",
     "admin": "Admin Siz nazorat qilasiz",
     "adminDescription": "barcha jarayonlarni va ota-onalar bilan muloqot qilasiz"
   },
@@ -562,6 +562,8 @@
     "editAdmin": "Admin tahrirlash"
   },
   "admins": {
+    "areYouSureDelete": "Rostdan ham o'chirishni hohlaysizmi",
+    "cancel": "Ortga",
     "admins": "Adminlar",
     "adminName": "Admin ismi",
     "Email": "Elektron pochta",

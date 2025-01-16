@@ -62,7 +62,8 @@
     "settings":"Settings",
     "charts": "Charts",
     "message-statistics": "Message Statistics",
-    "form-statistics": "Form Statistics"
+    "form-statistics": "Form Statistics",
+    "Personalization": "Personalization"
 
   },
   "intro": {
@@ -76,8 +77,8 @@
     "learn-more": "Learn More",
     "welcome": "Welcome to",
     "welcomeDescription": "Our Education Management System",
-    "messages": "The Messages Section",
-    "messagesDescription": "allows you to send these messages",
+    "messages": "Messages and Forms",
+    "messagesDescription": "Manage message sending and forms based on plans.",
     "admin": "Admin You control",
     "adminDescription": "all processes and communicate with Parents"
 
@@ -576,6 +577,8 @@
     "deleteAdmin": "Delete Admin"
   },
   "admins": {
+    "areYouSureDelete": "Are you sure delete",
+    "cancel": "Cancel",
     "admins": "Admins",
     "adminName": "Admin Name",
     "Email": "Email",

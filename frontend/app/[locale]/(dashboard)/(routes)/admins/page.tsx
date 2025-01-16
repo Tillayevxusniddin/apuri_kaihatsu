@@ -394,13 +394,130 @@
 //   );
 // }
 
+//version - 2
+
+//
+// "use client";
+//
+// import { useTranslations } from "next-intl";
+// import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+// import { File, Plus } from 'lucide-react';
+// import { ColumnDef } from "@tanstack/react-table";
+// import PaginationApi from "@/components/PaginationApi";
+// import { Input } from "@/components/ui/input";
+// import { Link } from "@/navigation";
+// import { Button } from "@/components/ui/button";
+// import Admin from "@/types/admin";
+// import TableApi from "@/components/TableApi";
+// import { useState } from "react";
+// import useApiQuery from "@/lib/useApiQuery";
+// import AdminApi from "@/types/adminApi";
+// import useFileMutation from "@/lib/useFileMutation";
+// import { Badge } from "@/components/ui/badge";
+//
+// export default function Admins() {
+//   const t = useTranslations("admins");
+//   const tName = useTranslations("names");
+//   const [page, setPage] = useState(1);
+//   const [search, setSearch] = useState("");
+//   const { data } = useApiQuery<AdminApi>(
+//     `admin/list?page=${page}&name=${search}`,
+//     ["admins", page, search]
+//   );
+//   const { mutate: exportAdmins } = useFileMutation(`admin/export`, [
+//     "exportAdmins",
+//   ]);
+//
+//   // const isMainAdmin = (admin: Admin) => admin.isMainAdmin;
+//
+//   const adminColumns: ColumnDef<Admin>[] = [
+//     {
+//       accessorKey: "name",
+//       header: t("adminName"),
+//       cell: ({ row }) => (
+//         <Link href={`admins/${row.original.id}`}>
+//           {tName("name", { ...row?.original })}
+//         </Link>
+//       ),
+//     },
+//     {
+//       accessorKey: "phone_number",
+//       header: t("Phone_number"),
+//       cell: ({ row }) => (
+//         <Link href={`admins/${row.original.id}`}>
+//           {row.getValue("phone_number")}
+//         </Link>
+//       ),
+//     },
+//     {
+//       accessorKey: "email",
+//       header: t("Email"),
+//       cell: ({ row }) => (
+//         <Link href={`https://mail.google.com/mail/?view=cm&fs=1&to=${row.getValue("email")}`}>
+//           {row.getValue("email")}
+//         </Link>
+//       ),
+//     }
+//   ];
+//
+//   return (
+//     <div className="w-full space-y-6">
+//       <div className="flex items-center justify-between">
+//         <div>
+//           <h1 className="text-3xl font-bold tracking-tight">{t("admins")}</h1>
+//           <p className="text-muted-foreground mt-2">
+//             {t("adminDescription")}
+//           </p>
+//         </div>
+//         <Link href={`./admins/create`}>
+//           <Button>
+//             <Plus className="mr-2 h-4 w-4" /> {t("createadmin")}
+//           </Button>
+//         </Link>
+//       </div>
+//       <Card>
+//         <CardHeader>
+//           <CardTitle>{t("adminList")}</CardTitle>
+//         </CardHeader>
+//         <CardContent>
+//           <div className="flex items-center justify-between mb-4">
+//             <div className="flex items-center space-x-2">
+//               <Input
+//                 placeholder={t("filter")}
+//                 value={search}
+//                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+//                   setSearch(e.target.value);
+//                   setPage(1);
+//                 }}
+//                 className="max-w-sm"
+//               />
+//               <Button
+//                 onClick={() => exportAdmins()}
+//                 size="sm"
+//                 variant="outline"
+//               >
+//                 <File className="mr-2 h-4 w-4" />
+//                 <span>{t("export")}</span>
+//               </Button>
+//             </div>
+//             <PaginationApi data={data?.pagination ?? null} setPage={setPage} />
+//           </div>
+//           <TableApi
+//             data={data?.admins ?? null}
+//             columns={adminColumns}
+//           />
+//         </CardContent>
+//       </Card>
+//     </div>
+//   );
+// }
 
 
 "use client";
 
 import { useTranslations } from "next-intl";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { File, Plus } from 'lucide-react';
+import { File, Plus, Edit, Trash } from 'lucide-react';
 import { ColumnDef } from "@tanstack/react-table";
 import PaginationApi from "@/components/PaginationApi";
 import { Input } from "@/components/ui/input";
@@ -427,25 +544,12 @@ export default function Admins() {
     "exportAdmins",
   ]);
 
-  // const isMainAdmin = (admin: Admin) => admin.isMainAdmin;
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [adminToDelete, setAdminToDelete] = useState<string | null>(null);
+
+  const isMainAdmin = (admin: Admin) => admin.isMainAdmin;
 
   const adminColumns: ColumnDef<Admin>[] = [
-    // {
-    //   accessorKey: "name",
-    //   header: t("adminName"),
-    //   cell: ({ row }) => (
-    //     <div className="flex items-center space-x-2">
-    //       <Link href={`admins/${row.original.id}`} className="font-medium hover:underline">
-    //         {isMainAdmin(row.original)
-    //           ? tName("name", { ...row.original })
-    //           : t("adminNameHidden")}
-    //       </Link>
-    //       {isMainAdmin(row.original) && (
-    //         <Badge variant="secondary">Main Admin</Badge>
-    //       )}
-    //     </div>
-    //   ),
-    // },
     {
       accessorKey: "name",
       header: t("adminName"),
@@ -472,8 +576,37 @@ export default function Admins() {
           {row.getValue("email")}
         </Link>
       ),
-    }
+    },
+    {
+      id: "actions",
+      header:t("action"),
+      cell: ({ row }) => (
+        <div className="flex space-x-2">
+          <Link href={`admins/edit/${row.original.id}`}>
+            <Button variant="outline" size="sm">
+              <Edit className="h-4 w-4" />
+            </Button>
+          </Link>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              setAdminToDelete(row.original.id);
+              setShowDeleteModal(true);
+            }}
+          >
+            <Trash className="h-4 w-4" />
+          </Button>
+        </div>
+      ),
+    },
   ];
+
+  const deleteAdmin = (adminId: string) => {
+    // Logic for deleting an admin (e.g., calling an API)
+    console.log(`Deleted admin with ID: ${adminId}`);
+    setShowDeleteModal(false);
+  };
 
   return (
     <div className="w-full space-y-6">
@@ -523,9 +656,41 @@ export default function Admins() {
           />
         </CardContent>
       </Card>
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 dark:bg-opacity-70">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md max-w-sm w-full">
+            <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">
+              {t("areYouSureDelete")}
+            </h3>
+            <div className="flex justify-between">
+              <Button
+                variant="outline"
+                onClick={() => setShowDeleteModal(false)}
+                className="text-black dark:text-white"
+              >
+                {t("cancel")}
+              </Button>
+              <Button
+                variant="destructive"
+                onClick={() => {
+                  if (adminToDelete) deleteAdmin(adminToDelete);
+                }}
+                className="bg-red-500 hover:bg-red-700 text-white dark:text-white"
+              >
+                {t("confirm")}
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
+
+
 
 
 

@@ -77,8 +77,8 @@
     "learn-more": "もっと知る",
     "welcome": "ようこそ",
     "welcomeDescription": "私たちの教育管理システムへ",
-    "messages": "メッセージセクション",
-    "messagesDescription": "これらのメッセージを送信できます",
+    "messages": "メッセージとフォーム",
+    "messagesDescription": "計画に基づいてメッセージ送信とフォームを管理します。",
     "admin": "管理者は",
     "adminDescription": "すべてのプロセスを管理し、保護者と連絡を取ります"
   },
@@ -562,6 +562,8 @@
     "editAdmin": "管理者を編集"
   },
   "admins": {
+    "areYouSureDelete": "削除してもよろしいですか",
+    "cancel": "閉じる",
     "admins": "管理者",
     "adminName": "管理者の名前",
     "Email": "メール",

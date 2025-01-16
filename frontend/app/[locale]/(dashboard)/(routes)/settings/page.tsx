@@ -99,7 +99,8 @@ export default function ImageGallery() {
                   >
                     <CheckCircle className="mr-2 h-4 w-4"/> {image.isActive === 0 ? "Active" : "Activate"}
                   </Button>
-                  <Button onClick={() => handleDelete(image.id)}>
+                  <Button onClick={() => handleDelete(image.id)} disabled={image.isActive !== 0}>
+
                     <Trash2 className="mr-2 h-4 w-4"/> Delete
                   </Button>
                 </CardFooter>
