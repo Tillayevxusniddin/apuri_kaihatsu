@@ -13,6 +13,7 @@ import FormController from './routes/form'
 // import SettingsController from './routes/settings'
 // import ImageController from './routes/images'
 import ImageController from './routes/introduction'
+import MediaController from "./routes/card";
 
 console.log('starting app');
 
@@ -25,6 +26,7 @@ const app = new App([
     new GroupController(),
     new FormController(),
     new ImageController(),
+    new MediaController(),
 ]);
 
 export const handler: serverless.Handler = serverless(app.listen());
