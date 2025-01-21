@@ -92,7 +92,7 @@
 //                   </div>
 //                 </DropdownMenuLabel>
 //                 <DropdownMenuSeparator/>
-//                 <DropdownMenuItem>{t("settings")}</DropdownMenuItem>
+//                 <DropdownMenuItem>{t("personalization")}</DropdownMenuItem>
 //                 <DropdownMenuItem>{t("support")}</DropdownMenuItem>
 //                 <DropdownMenuSeparator/>
 //                 <div className="flex gap-2">

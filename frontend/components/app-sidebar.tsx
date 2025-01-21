@@ -156,12 +156,13 @@ const data = {
       items: [
         {
           key: "Personalization", // "key" orqali tarjima qilish kerak keyinroq
-          url: "/settings",
+          url: "/personalization",
           parent: "/settings",
         },
         {
-          key: "team",
-          url: "#",
+          key: "Media",
+          url: "/media",
+          parent: "/settings",
         },
         {
           key: "billing",

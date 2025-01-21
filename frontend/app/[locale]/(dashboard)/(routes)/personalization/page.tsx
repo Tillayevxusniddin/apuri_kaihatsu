@@ -7,7 +7,7 @@ import {
   uploadImage,
   deleteImage,
   activateImage
-} from "@/app/[locale]/(dashboard)/(routes)/settings/actions";
+} from "@/app/[locale]/(dashboard)/(routes)/personalization/actions";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

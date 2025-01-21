@@ -114,7 +114,7 @@ import { useTranslations } from "next-intl"
 import Image from "next/image"
 import {
   imageGetList,
-} from "@/app/[locale]/(dashboard)/(routes)/settings/actions";
+} from "@/app/[locale]/(dashboard)/(routes)/personalization/actions";
 import {useSession} from "next-auth/react";
 const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
   <motion.div
