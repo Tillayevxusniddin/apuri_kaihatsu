@@ -1,178 +1,3 @@
-// "use client"
-// import { useState, useEffect } from "react"
-// import { useSession } from "next-auth/react"
-// import { createMedia, deleteMedia, updateMedia, getMediaList, getMediaDetail } from "./action"
-// import { Button } from "@/components/ui/button"
-// import { Input } from "@/components/ui/input"
-// import { Textarea } from "@/components/ui/textarea"
-// import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-// import { toast } from "@/components/ui/use-toast"
-//
-// export default function MediaPage() {
-//   const { data: session } = useSession()
-//   const [mediaList, setMediaList] = useState<any[]>([])
-//   const [title, setTitle] = useState("")
-//   const [description, setDescription] = useState("")
-//   const [videoUrl, setVideoUrl] = useState("")
-//   const [imageFile, setImageFile] = useState<File | null>(null)
-//   const [editingMedia, setEditingMedia] = useState<any | null>(null)
-//
-//   useEffect(() => {
-//     fetchMediaList()
-//   }, [session])
-//
-//   const fetchMediaList = async () => {
-//     try {
-//       const media = await getMediaList(session?.sessionToken)
-//       setMediaList(media)
-//     } catch (error) {
-//       toast({
-//         title: "Xatolik",
-//         description: "Media ro'yxatini olishda xatolik yuz berdi.",
-//         variant: "destructive",
-//       })
-//     }
-//   }
-//
-//   const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault()
-//     try {
-//       if (editingMedia) {
-//         await updateMedia(session?.sessionToken, editingMedia.id, imageFile, videoUrl, title, description)
-//         toast({ title: "Muvaffaqiyatli", description: "Media yangilandi." })
-//       } else {
-//         if (!imageFile) throw new Error("Rasm tanlang")
-//         await createMedia(session?.sessionToken, imageFile, videoUrl, title, description)
-//         toast({ title: "Muvaffaqiyatli", description: "Yangi media yaratildi." })
-//       }
-//       fetchMediaList()
-//       resetForm()
-//     } catch (error: any) {
-//       toast({
-//         title: "Xatolik",
-//         description: error.message || "Media bilan ishlashda xatolik yuz berdi.",
-//         variant: "destructive",
-//       })
-//     }
-//   }
-//
-//   const handleDelete = async (id: number) => {
-//     try {
-//       await deleteMedia(session?.sessionToken, id)
-//       toast({ title: "Muvaffaqiyatli", description: "Media o'chirildi." })
-//       fetchMediaList()
-//     } catch (error) {
-//       toast({
-//         title: "Xatolik",
-//         description: "Media o'chirishda xatolik yuz berdi.",
-//         variant: "destructive",
-//       })
-//     }
-//   }
-//
-//   const handleEdit = async (id: number) => {
-//     try {
-//       const mediaDetail = await getMediaDetail(session?.sessionToken, id)
-//       setEditingMedia(mediaDetail?.media)
-//       setTitle(mediaDetail.title)
-//       setDescription(mediaDetail.description)
-//       setVideoUrl(mediaDetail.videoUrl)
-//     } catch (error) {
-//       toast({
-//         title: "Xatolik",
-//         description: "Media ma'lumotlarini olishda xatolik yuz berdi.",
-//         variant: "destructive",
-//       })
-//     }
-//   }
-//
-//   const resetForm = () => {
-//     setTitle("")
-//     setDescription("")
-//     setVideoUrl("")
-//     setImageFile(null)
-//     setEditingMedia(null)
-//   }
-//
-//   return (
-//     <div className="container mx-auto p-4">
-//       <h1 className="text-2xl font-bold mb-4">Media boshqaruvi</h1>
-//
-//       <form onSubmit={handleSubmit} className="mb-8">
-//         <Card>
-//           <CardHeader>
-//             <CardTitle>{editingMedia ? "Media yangilash" : "Yangi media yaratish"}</CardTitle>
-//           </CardHeader>
-//           <CardContent className="space-y-4">
-//             <Input
-//               type="text"
-//               placeholder="Sarlavha"
-//               value={title}
-//               onChange={(e) => setTitle(e.target.value)}
-//               required
-//             />
-//             <Textarea
-//               placeholder="Tavsif"
-//               value={description}
-//               onChange={(e) => setDescription(e.target.value)}
-//               required
-//             />
-//             <Input
-//               type="url"
-//               placeholder="Video URL"
-//               value={videoUrl}
-//               onChange={(e) => setVideoUrl(e.target.value)}
-//               required
-//             />
-//             <Input
-//               type="file"
-//               accept="image/*"
-//               onChange={(e) => setImageFile(e.target.files?.[0] || null)}
-//               required={!editingMedia}
-//             />
-//           </CardContent>
-//           <CardFooter>
-//             <Button type="submit">{editingMedia ? "Yangilash" : "Yaratish"}</Button>
-//             {editingMedia && (
-//               <Button type="button" variant="outline" onClick={resetForm} className="ml-2">
-//                 Bekor qilish
-//               </Button>
-//             )}
-//           </CardFooter>
-//         </Card>
-//       </form>
-//
-//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-//         {mediaList.map((media) => (
-//           <Card key={media.id}>
-//             <CardHeader>
-//               <CardTitle>{media.title}</CardTitle>
-//             </CardHeader>
-//             <CardContent>
-//               <img
-//                 src={media.imageUrl || "/placeholder.svg"}
-//                 alt={media.title}
-//                 className="w-full h-48 object-cover mb-2"
-//               />
-//               <p className="text-sm text-gray-600">{media.description}</p>
-//             </CardContent>
-//             <CardFooter>
-//               <Button variant="outline" onClick={() => handleEdit(media.id)} className="mr-2">
-//                 Tahrirlash
-//               </Button>
-//               <Button variant="destructive" onClick={() => handleDelete(media.id)}>
-//                 O'chirish
-//               </Button>
-//             </CardFooter>
-//           </Card>
-//         ))}
-//       </div>
-//     </div>
-//   )
-// }
-//
-
-//
 // "use client";
 //
 // import { useState, useEffect } from "react";
@@ -196,7 +21,7 @@
 //   const [title, setTitle] = useState("");
 //   const [description, setDescription] = useState("");
 //   const [videoUrl, setVideoUrl] = useState("");
-//   const [imageFile, setImageFile] = useState<File | null>(null);
+//   const [imageFiles, setImageFiles] = useState<File[]>([]);  // Bir nechta rasmni saqlash
 //   const [editingMedia, setEditingMedia] = useState<any | null>(null);
 //
 //   useEffect(() => {
@@ -228,15 +53,15 @@
 //         await updateMedia(
 //           session.sessionToken,
 //           editingMedia.id,
-//           imageFile,
+//           imageFiles,
 //           videoUrl,
 //           title,
 //           description
 //         );
 //         toast({ title: "Muvaffaqiyatli", description: "Media yangilandi." });
 //       } else {
-//         if (!imageFile) throw new Error("Rasm tanlanmagan.");
-//         await createMedia(session.sessionToken, imageFile, videoUrl, title, description);
+//         if (imageFiles.length === 0) throw new Error("Rasm tanlanmagan.");
+//         await createMedia(session.sessionToken, imageFiles, videoUrl, title, description);
 //         toast({ title: "Muvaffaqiyatli", description: "Yangi media yaratildi." });
 //       }
 //       fetchMediaList();
@@ -278,9 +103,10 @@
 //     try {
 //       const mediaDetail = await getMediaDetail(session.sessionToken, id);
 //       setEditingMedia(mediaDetail?.media);
-//       setTitle(mediaDetail.title);
-//       setDescription(mediaDetail.description);
-//       setVideoUrl(mediaDetail.videoUrl);
+//       setTitle(mediaDetail.media.title);
+//       setDescription(mediaDetail.media.description);
+//       setVideoUrl(mediaDetail.media.videoUrl);
+//       setImageFiles([]);  // Rasm fayllarini tozalash
 //     } catch (error: any) {
 //       toast({
 //         title: "Xatolik",
@@ -294,29 +120,28 @@
 //     setTitle("");
 //     setDescription("");
 //     setVideoUrl("");
-//     setImageFile(null);
+//     setImageFiles([]);
 //     setEditingMedia(null);
 //   };
 //
 //   return (
 //     <div className="container mx-auto p-4">
-//       <h1 className="text-2xl font-bold mb-4">Media boshqaruvi</h1>
-//
+//       <h1 className="text-2xl font-bold mb-4">Tutorial Controller</h1>
 //       <form onSubmit={handleSubmit} className="mb-8">
 //         <Card>
 //           <CardHeader>
-//             <CardTitle>{editingMedia ? "Media yangilash" : "Yangi media yaratish"}</CardTitle>
+//             <CardTitle>{editingMedia ? "Cards Update" : "A New Card Create"}</CardTitle>
 //           </CardHeader>
 //           <CardContent className="space-y-4">
 //             <Input
 //               type="text"
-//               placeholder="Sarlavha"
+//               placeholder="Title"
 //               value={title}
 //               onChange={(e) => setTitle(e.target.value)}
 //               required
 //             />
 //             <Textarea
-//               placeholder="Tavsif"
+//               placeholder="Description"
 //               value={description}
 //               onChange={(e) => setDescription(e.target.value)}
 //               required
@@ -325,21 +150,22 @@
 //               type="url"
 //               placeholder="Video URL"
 //               value={videoUrl}
-//               onChange={(e) => setVideoUrl(e.target.value)}
+//               onChange={(e) => {setVideoUrl(e.target.value)}}
 //               required
 //             />
 //             <Input
 //               type="file"
 //               accept="image/*"
-//               onChange={(e) => setImageFile(e.target.files?.[0] || null)}
-//               required={!editingMedia}
+//               multiple  // Bir nechta rasmni yuklash
+//               onChange={(e) => setImageFiles(Array.from(e.target.files || []))}
+//               required={!editingMedia} // Yangi yaratish uchun majburiy, tahrirlashda emas
 //             />
 //           </CardContent>
 //           <CardFooter>
-//             <Button type="submit">{editingMedia ? "Yangilash" : "Yaratish"}</Button>
+//             <Button type="submit">{editingMedia ? "Update" : "Create"}</Button>
 //             {editingMedia && (
 //               <Button type="button" variant="outline" onClick={resetForm} className="ml-2">
-//                 Bekor qilish
+//                 Cancel
 //               </Button>
 //             )}
 //           </CardFooter>
@@ -347,234 +173,271 @@
 //       </form>
 //
 //       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-//         {mediaList.map((media) => (
-//           <Card key={media.id}>
-//             <CardHeader>
-//               <CardTitle>{media.title}</CardTitle>
-//             </CardHeader>
-//             <CardContent>
-//               <img
-//                 src={media.imageUrl || "/placeholder.svg"}
-//                 alt={media.title}
-//                 className="w-full h-48 object-cover mb-2"
-//               />
-//               <p className="text-sm text-gray-600">{media.description}</p>
-//             </CardContent>
-//             <CardFooter>
-//               <Button variant="outline" onClick={() => handleEdit(media.id)} className="mr-2">
-//                 Tahrirlash
-//               </Button>
-//               <Button variant="destructive" onClick={() => handleDelete(media.id)}>
-//                 O'chirish
-//               </Button>
-//             </CardFooter>
-//           </Card>
-//         ))}
+//         {mediaList.map((media) => {
+//           const images = media.imageUrl.split(",");
+//           return(
+//             <Card key={media.id}>
+//               <CardHeader>
+//                 <CardTitle>{media.title}</CardTitle>
+//               </CardHeader>
+//               <CardContent>
+//                 <div className={"grid grid-cols-2 gap-3"}>
+//                   {
+//                     images?.map((image:any) => (
+//                       <img
+//                         src={image || "/placeholder.svg"}
+//                         alt={media.title}
+//                         className="w-full h-48 object-cover mb-2"
+//                       />
+//                     ))
+//                   }
+//                 </div>
+//                 <p className="text-sm text-gray-600">{media.description}</p>
+//               </CardContent>
+//               <CardFooter>
+//                 <Button variant="outline" onClick={() => handleEdit(media.id)} className="mr-2">
+//                   Edit
+//                 </Button>
+//                 <Button variant="destructive" onClick={() => handleDelete(media.id)}>
+//                   Delete
+//                 </Button>
+//               </CardFooter>
+//             </Card>
+//           );
+//         })}
 //       </div>
 //     </div>
 //   );
 // }
 
 
-"use client";
 
-import { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
-import {
-  createMedia,
-  deleteMedia,
-  updateMedia,
-  getMediaList,
-  getMediaDetail,
-} from "./action";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { toast } from "@/components/ui/use-toast";
+"use client"
+
+import { useState, useEffect } from "react"
+import { useSession } from "next-auth/react"
+import { createMedia, deleteMedia, updateMedia, getMediaList, getMediaDetail } from "./action"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { toast } from "@/components/ui/use-toast"
+import { PlusCircle, Edit, Trash2 } from "lucide-react"
 
 export default function MediaPage() {
-  const { data: session } = useSession();
-  const [mediaList, setMediaList] = useState<any[]>([]);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [videoUrl, setVideoUrl] = useState("");
-  const [imageFile, setImageFile] = useState<File | null>(null);
-  const [editingMedia, setEditingMedia] = useState<any | null>(null);
+  const { data: session } = useSession()
+  const [mediaList, setMediaList] = useState<any[]>([])
+  const [title, setTitle] = useState("")
+  const [description, setDescription] = useState("")
+  const [videoUrl, setVideoUrl] = useState("")
+  const [imageFiles, setImageFiles] = useState<File[]>([])
+  const [editingMedia, setEditingMedia] = useState<any | null>(null)
+  const [isFormVisible, setIsFormVisible] = useState(false)
 
   useEffect(() => {
-    if (session?.sessionToken) fetchMediaList();
-  }, [session]);
+    if (session?.sessionToken) fetchMediaList()
+  }, [session])
 
   const fetchMediaList = async () => {
     try {
-      const media = await getMediaList(session?.sessionToken);
-      setMediaList(media);
+      const media = await getMediaList(session?.sessionToken)
+      setMediaList(media)
     } catch (error: any) {
       toast({
-        title: "Xatolik",
-        description: error.message || "Media ro'yxatini olishda xatolik yuz berdi.",
+        title: "Error",
+        description: error.message || "An error occurred while fetching the media list.",
         variant: "destructive",
-      });
+      })
     }
-  };
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     if (!session?.sessionToken) {
-      toast({ title: "Xatolik", description: "Token mavjud emas.", variant: "destructive" });
-      return;
+      toast({ title: "Error", description: "Token not found.", variant: "destructive" })
+      return
     }
 
     try {
       if (editingMedia) {
-        await updateMedia(
-          session.sessionToken,
-          editingMedia.id,
-          imageFile,
-          videoUrl,
-          title,
-          description
-        );
-        toast({ title: "Muvaffaqiyatli", description: "Media yangilandi." });
+        await updateMedia(session.sessionToken, editingMedia.id, imageFiles, videoUrl, title, description)
+        toast({ title: "Success", description: "Media updated successfully." })
       } else {
-        if (!imageFile) throw new Error("Rasm tanlanmagan.");
-        await createMedia(session.sessionToken, imageFile, videoUrl, title, description);
-        toast({ title: "Muvaffaqiyatli", description: "Yangi media yaratildi." });
+        if (imageFiles.length === 0) throw new Error("No image selected.")
+        await createMedia(session.sessionToken, imageFiles, videoUrl, title, description)
+        toast({ title: "Success", description: "New media created successfully." })
       }
-      fetchMediaList();
-      resetForm();
+      fetchMediaList()
+      resetForm()
     } catch (error: any) {
       toast({
-        title: "Xatolik",
-        description: error.message || "Media bilan ishlashda xatolik yuz berdi.",
+        title: "Error",
+        description: error.message || "An error occurred while processing the media.",
         variant: "destructive",
-      });
+      })
     }
-  };
+  }
 
   const handleDelete = async (id: number) => {
     if (!session?.sessionToken) {
-      toast({ title: "Xatolik", description: "Token mavjud emas.", variant: "destructive" });
-      return;
+      toast({ title: "Error", description: "Token not found.", variant: "destructive" })
+      return
     }
 
     try {
-      await deleteMedia(session.sessionToken, id);
-      toast({ title: "Muvaffaqiyatli", description: "Media o'chirildi." });
-      fetchMediaList();
+      await deleteMedia(session.sessionToken, id)
+      toast({ title: "Success", description: "Media deleted successfully." })
+      fetchMediaList()
     } catch (error: any) {
       toast({
-        title: "Xatolik",
-        description: error.message || "Media o'chirishda xatolik yuz berdi.",
+        title: "Error",
+        description: error.message || "An error occurred while deleting the media.",
         variant: "destructive",
-      });
+      })
     }
-  };
+  }
 
   const handleEdit = async (id: number) => {
     if (!session?.sessionToken) {
-      toast({ title: "Xatolik", description: "Token mavjud emas.", variant: "destructive" });
-      return;
+      toast({ title: "Error", description: "Token not found.", variant: "destructive" })
+      return
     }
 
     try {
-      const mediaDetail = await getMediaDetail(session.sessionToken, id);
-      setEditingMedia(mediaDetail?.media);
-      setTitle(mediaDetail.media.title);
-      setDescription(mediaDetail.media.description);
-      setVideoUrl(mediaDetail.media.videoUrl);
-      setImageFile(null); // Faylni bo'sh qoldiramiz
+      const mediaDetail = await getMediaDetail(session.sessionToken, id)
+      setEditingMedia(mediaDetail?.media)
+      setTitle(mediaDetail.media.title)
+      setDescription(mediaDetail.media.description)
+      setVideoUrl(mediaDetail.media.videoUrl)
+      setImageFiles([])
+      setIsFormVisible(true)
     } catch (error: any) {
       toast({
-        title: "Xatolik",
-        description: error.message || "Media ma'lumotlarini olishda xatolik yuz berdi.",
+        title: "Error",
+        description: error.message || "An error occurred while fetching media details.",
         variant: "destructive",
-      });
+      })
     }
-  };
+  }
 
   const resetForm = () => {
-    setTitle("");
-    setDescription("");
-    setVideoUrl("");
-    setImageFile(null);
-    setEditingMedia(null);
-  };
+    setTitle("")
+    setDescription("")
+    setVideoUrl("")
+    setImageFiles([])
+    setEditingMedia(null)
+    setIsFormVisible(false)
+  }
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Media boshqaruvi</h1>
+    <div className="container mx-auto p-4 space-y-8">
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl font-bold">Tutorial Controller</h1>
+        <Button onClick={() => setIsFormVisible(!isFormVisible)}>
+          {isFormVisible ? "Hide Form" : "Add New Tutorial"}
+        </Button>
+      </div>
 
-      <form onSubmit={handleSubmit} className="mb-8">
-        <Card>
+      {isFormVisible && (
+        <Card className="mb-8">
           <CardHeader>
-            <CardTitle>{editingMedia ? "Media yangilash" : "Yangi media yaratish"}</CardTitle>
+            <CardTitle>{editingMedia ? "Update Tutorial" : "Create New Tutorial"}</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <Input
-              type="text"
-              placeholder="Sarlavha"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            />
-            <Textarea
-              placeholder="Tavsif"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
-            <Input
-              type="url"
-              placeholder="Video URL"
-              value={videoUrl}
-              onChange={(e) => setVideoUrl(e.target.value)}
-              required
-            />
-            <Input
-              type="file"
-              accept="image/*"
-              onChange={(e) => setImageFile(e.target.files?.[0] || null)}
-              required={!editingMedia} // Yangi yaratishda majburiy, tahrirda emas
-            />
-          </CardContent>
-          <CardFooter>
-            <Button type="submit">{editingMedia ? "Yangilash" : "Yaratish"}</Button>
-            {editingMedia && (
-              <Button type="button" variant="outline" onClick={resetForm} className="ml-2">
-                Bekor qilish
-              </Button>
-            )}
-          </CardFooter>
-        </Card>
-      </form>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {mediaList.map((media) => (
-          <Card key={media.id}>
-            <CardHeader>
-              <CardTitle>{media.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <img
-                src={media.imageUrl || "/placeholder.svg"}
-                alt={media.title}
-                className="w-full h-48 object-cover mb-2"
-              />
-              <p className="text-sm text-gray-600">{media.description}</p>
+          <form onSubmit={handleSubmit}>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <label htmlFor="title" className="text-sm font-medium">
+                  Title
+                </label>
+                <Input
+                  id="title"
+                  type="text"
+                  placeholder="Enter title"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="description" className="text-sm font-medium">
+                  Description
+                </label>
+                <Textarea
+                  id="description"
+                  placeholder="Enter description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="videoUrl" className="text-sm font-medium">
+                  Video URL
+                </label>
+                <Input
+                  id="videoUrl"
+                  type="url"
+                  placeholder="Enter video URL"
+                  value={videoUrl}
+                  onChange={(e) => setVideoUrl(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="images" className="text-sm font-medium">
+                  Images
+                </label>
+                <Input
+                  id="images"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={(e) => setImageFiles(Array.from(e.target.files || []))}
+                  required={!editingMedia}
+                />
+              </div>
             </CardContent>
-            <CardFooter>
-              <Button variant="outline" onClick={() => handleEdit(media.id)} className="mr-2">
-                Tahrirlash
-              </Button>
-              <Button variant="destructive" onClick={() => handleDelete(media.id)}>
-                O'chirish
-              </Button>
+            <CardFooter className="flex justify-between">
+              <Button type="submit">{editingMedia ? "Update" : "Create"}</Button>
+              {editingMedia && (
+                <Button type="button" variant="outline" onClick={resetForm}>
+                  Cancel
+                </Button>
+              )}
             </CardFooter>
-          </Card>
-        ))}
+          </form>
+        </Card>
+      )}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {mediaList.map((media) => {
+          const images = media.imageUrl.split(",")
+          return (
+            <Card key={media.id} className="flex flex-col">
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold truncate">{media.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <div className="aspect-video mb-4 overflow-hidden rounded-md">
+                  <img src={images[0] || "/placeholder.svg"} alt={media.title} className="w-full h-full object-cover" />
+                </div>
+                <p className="text-sm text-gray-600 line-clamp-3">{media.description}</p>
+              </CardContent>
+              <CardFooter className="flex justify-between">
+                <Button variant="outline" size="sm" onClick={() => handleEdit(media.id)}>
+                  <Edit className="w-4 h-4 mr-2" />
+                  Edit
+                </Button>
+                <Button variant="destructive" size="sm" onClick={() => handleDelete(media.id)}>
+                  <Trash2 className="w-4 h-4 mr-2" />
+                  Delete
+                </Button>
+              </CardFooter>
+            </Card>
+          )
+        })}
       </div>
     </div>
-  );
+  )
 }
+

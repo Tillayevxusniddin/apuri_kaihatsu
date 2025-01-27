@@ -10,8 +10,6 @@ import PostController from './routes/post'
 import AdminController from './routes/admin'
 import GroupController from './routes/group'
 import FormController from './routes/form'
-// import SettingsController from './routes/settings'
-// import ImageController from './routes/images'
 import ImageController from './routes/introduction'
 import MediaController from "./routes/card";
 

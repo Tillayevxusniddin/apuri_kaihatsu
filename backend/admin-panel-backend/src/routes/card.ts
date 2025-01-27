@@ -10,6 +10,7 @@ import FormData from "form-data";
 // Image upload configuration
 const IMGBB_API_KEY = "ed6fbd4725a6f8bd7eecdc3a334a37e5";
 
+// Allow multiple images to be uploaded (max 5 images for example)
 const upload = multer({ storage: multer.memoryStorage() });
 
 class MediaController implements IController {
@@ -42,14 +43,14 @@ class MediaController implements IController {
     this.router.post(
       "/media/create",
       verifyToken,
-      upload.single("image"),
+      upload.array("image", 5), // Change to handle multiple files
       this.createMedia
     );
     this.router.delete("/media/:id", verifyToken, this.deleteMedia);
     this.router.put(
       "/media/:id",
       verifyToken,
-      upload.single("image"),
+      upload.array("image", 5), // Change to handle multiple files
       this.updateMedia
     );
     this.router.get("/media/list", verifyToken, this.getMediaList);
@@ -61,67 +62,44 @@ class MediaController implements IController {
     try {
       const { videoUrl, title, description } = req.body;
 
-      if (!req.file || !req.file.buffer) {
-        throw { status: 400, message: "No image file uploaded" };
+      if (!req.files || !Array.isArray(req.files) || req.files.length === 0) {
+        throw { status: 400, message: "No image files uploaded" };
       }
 
       if (!videoUrl || !title || !description) {
         throw { status: 400, message: "Missing required fields" };
       }
 
-      // Upload image to imgBB
-      const form = new FormData();
-      form.append("image", req.file.buffer, req.file.originalname);
-      form.append("key", IMGBB_API_KEY);
+      // Upload each image to imgBB and get URLs
+      const imageUrls = await Promise.all(
+        (req.files as Express.Multer.File[]).map(async (file) => {
+          const form = new FormData();
+          form.append("image", file.buffer, file.originalname);
+          form.append("key", IMGBB_API_KEY);
 
-      const response = await axios.post(
-        "https://api.imgbb.com/1/upload",
-        form,
-        {
-          headers: { ...form.getHeaders() },
-        }
+          const response = await axios.post(
+            "https://api.imgbb.com/1/upload",
+            form,
+            {
+              headers: { ...form.getHeaders() },
+            }
+          );
+
+          return response.data.data.url;
+        })
       );
-
-      const imageUrl = response.data.data.url;
 
       // Insert the new media entry into the database
       const result = await DB.execute(
         `INSERT INTO Media (imageUrl, videoUrl, title, description) VALUES (:imageUrl, :videoUrl, :title, :description)`,
-        { imageUrl, videoUrl, title, description }
+        { imageUrl: imageUrls.join(","), videoUrl, title, description }
       );
 
       return res.status(201).json({
         message: "Media created successfully",
         media_id: result.insertId,
-        imageUrl,
+        imageUrls,
       });
-    } catch (e: any) {
-      return res
-        .status(e.status || 500)
-        .json({ error: e.message || "Internal server error" });
-    }
-  };
-
-  // Delete media entry
-  deleteMedia = async (req: ExtendedRequest, res: Response) => {
-    try {
-      const mediaId = req.params.id;
-
-      if (!isValidId(mediaId)) {
-        throw { status: 400, message: "Invalid media ID" };
-      }
-
-      const media = await DB.query(`SELECT * FROM Media WHERE id = :id`, {
-        id: mediaId,
-      });
-
-      if (media.length === 0) {
-        throw { status: 404, message: "Media not found" };
-      }
-
-      await DB.execute(`DELETE FROM Media WHERE id = :id`, { id: mediaId });
-
-      return res.status(200).json({ message: "Media deleted successfully" });
     } catch (e: any) {
       return res
         .status(e.status || 500)
@@ -147,26 +125,37 @@ class MediaController implements IController {
         throw { status: 404, message: "Media not found" };
       }
 
-      let imageUrl = media[0].imageUrl;
-      if (req.file && req.file.buffer) {
-        const form = new FormData();
-        form.append("image", req.file.buffer, req.file.originalname);
-        form.append("key", IMGBB_API_KEY);
+      let imageUrls = media[0].imageUrl.split(",");
+      if (req.files && Array.isArray(req.files) && req.files.length > 0) {
+        // Upload each new image to imgBB and get URLs
+        imageUrls = await Promise.all(
+          (req.files as Express.Multer.File[]).map(async (file) => {
+            const form = new FormData();
+            form.append("image", file.buffer, file.originalname);
+            form.append("key", IMGBB_API_KEY);
 
-        const response = await axios.post(
-          "https://api.imgbb.com/1/upload",
-          form,
-          {
-            headers: { ...form.getHeaders() },
-          }
+            const response = await axios.post(
+              "https://api.imgbb.com/1/upload",
+              form,
+              {
+                headers: { ...form.getHeaders() },
+              }
+            );
+
+            return response.data.data.url;
+          })
         );
-
-        imageUrl = response.data.data.url;
       }
 
       await DB.execute(
         `UPDATE Media SET imageUrl = :imageUrl, videoUrl = :videoUrl, title = :title, description = :description WHERE id = :id`,
-        { imageUrl, videoUrl, title, description, id: mediaId }
+        {
+          imageUrl: imageUrls.join(","),
+          videoUrl,
+          title,
+          description,
+          id: mediaId,
+        }
       );
 
       return res.status(200).json({ message: "Media updated successfully" });
@@ -215,6 +204,36 @@ class MediaController implements IController {
         .json({ error: e.message || "Internal server error" });
     }
   };
+
+  // Delete a media entry by ID
+  deleteMedia = async (req: ExtendedRequest, res: Response) => {
+    try {
+      const mediaId = req.params.id;
+
+      if (!isValidId(mediaId)) {
+        throw { status: 400, message: "Invalid media ID" };
+      }
+
+      // Check if the media exists
+      const media = await DB.query(`SELECT * FROM Media WHERE id = :id`, {
+        id: mediaId,
+      });
+
+      if (media.length === 0) {
+        throw { status: 404, message: "Media not found" };
+      }
+
+      // Perform the delete operation
+      await DB.execute(`DELETE FROM Media WHERE id = :id`, { id: mediaId });
+
+      return res.status(200).json({ message: "Media deleted successfully" });
+    } catch (e: any) {
+      return res
+        .status(e.status || 500)
+        .json({ error: e.message || "Internal server error" });
+    }
+  };
 }
 
 export default MediaController;
+
