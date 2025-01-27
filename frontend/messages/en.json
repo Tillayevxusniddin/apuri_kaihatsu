@@ -64,7 +64,7 @@
     "message-statistics": "Message Statistics",
     "form-statistics": "Form Statistics",
     "Personalization": "Personalization",
-    "Media": "Cards & Media"
+    "Media": "Cards-Control"
 
   },
   "intro": {
@@ -127,7 +127,29 @@
     "forms-t": "Forms",
     "forms-d": "Handle form inputs and validation in React.",
     "forms-c": "In this tutorial, you'll cover everything you need to know about handling forms in React, including how to create, validate, and manage form submissions. We’ll teach you how to implement input validation to ensure that all user-provided data is correct and meets the required format. The tutorial also dives into handling dynamic form inputs, managing state, and preventing common issues like form data loss. By the end of this tutorial, you'll know how to manage user inputs efficiently and handle form submissions with ease.",
-    "close": "Close"
+    "close": "Close",
+    "hideform" : "Hide Form",
+    "addnewtutorial": "Add New Tutorial",
+    "loading": "loading",
+    "imagegallery": "Image Gallery",
+    "uploadnewimage": "Upload New Image",
+    "upload": "Upload",
+    "allimages": "All Images",
+    "delete": "Delete",
+    "active": "Active",
+    "activate": "Activate",
+    "tutorialcontroller": "Tutorial Controller",
+    "edit": "Edit",
+    "createnewtutorial": "Create New Tutorial",
+    "updatetutorial": "Update Tutorial",
+    "title": "Title",
+    "description": "Description",
+    "videourl": "Video Url",
+    "images": "Images",
+    "create": "Create",
+    "update": "Update"
+
+
   },
   "dashboard": {
     "newForms": "New Forms",

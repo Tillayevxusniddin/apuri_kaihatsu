@@ -130,12 +130,15 @@ import { Input } from "@/components/ui/input"
 import { Upload, Trash2, CheckCircle, ImageIcon } from "lucide-react"
 import { toast } from "@/components/ui/use-toast"
 import { ImageSkeleton } from "@/components/image-skeleton"
+import { useTranslations } from "next-intl"
+
 
 export default function ImageGallery() {
   const [images, setImages] = useState<any[]>([])
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const { data: session } = useSession()
+  const i = useTranslations("tutor")
 
   useEffect(() => {
     if (session?.sessionToken) {
@@ -215,10 +218,10 @@ export default function ImageGallery() {
 
   return (
     <div className="container mx-auto p-4 space-y-8">
-      <h1 className="text-3xl font-bold mb-6">Image Gallery</h1>
+      <h1 className="text-3xl font-bold mb-6">{i("imagegallery")}</h1>
 
       <Card className="p-6">
-        <h2 className="text-xl font-semibold mb-4">Upload New Image</h2>
+        <h2 className="text-xl font-semibold mb-4">{i("uploadnewimage")}</h2>
         <div className="flex items-center gap-4">
           <Input
             type="file"
@@ -226,13 +229,13 @@ export default function ImageGallery() {
             className="flex-grow"
           />
           <Button onClick={handleUpload} disabled={!selectedFile}>
-            <Upload className="mr-2 h-4 w-4" /> Upload
+            <Upload className="mr-2 h-4 w-4" /> {i("upload")}
           </Button>
         </div>
       </Card>
 
       <div>
-        <h2 className="text-2xl font-semibold mb-4">All Images</h2>
+        <h2 className="text-2xl font-semibold mb-4">{i("allimages")}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {isLoading
             ? Array.from({ length: 8 }).map((_, index) => <ImageSkeleton key={index} />)
@@ -246,12 +249,12 @@ export default function ImageGallery() {
                   />
                   {image.isActive !== 0 && (
                     <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">
-                      Active
+                      {i("active")}
                     </div>
                   )}
                 </div>
                 <CardContent className="flex-grow p-4">
-                  <h3 className="text-lg font-semibold mb-2">Image {image.id}</h3>
+                  {/*<h3 className="text-lg font-semibold mb-2">Image {image.id}</h3>*/}
                   <p className="text-sm text-gray-600 truncate">{image.url}</p>
                 </CardContent>
                 <CardFooter className="flex justify-between p-4 bg-gray-50">
@@ -262,7 +265,7 @@ export default function ImageGallery() {
                     size="sm"
                   >
                     <CheckCircle className="mr-2 h-4 w-4" />
-                    {image.isActive === 0 ? "Activate" : "Active"}
+                    {image.isActive === 0 ? i("activate") : i("active")}
                   </Button>
                   <Button
                     onClick={() => handleDelete(image.id)}
@@ -270,7 +273,7 @@ export default function ImageGallery() {
                     variant="destructive"
                     size="sm"
                   >
-                    <Trash2 className="mr-2 h-4 w-4" /> Delete
+                    <Trash2 className="mr-2 h-4 w-4" /> {i("delete")}
                   </Button>
                 </CardFooter>
               </Card>

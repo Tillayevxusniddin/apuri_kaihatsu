@@ -223,6 +223,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { toast } from "@/components/ui/use-toast"
 import { PlusCircle, Edit, Trash2 } from "lucide-react"
+import {useTranslations} from "next-intl";
 
 export default function MediaPage() {
   const { data: session } = useSession()
@@ -233,6 +234,7 @@ export default function MediaPage() {
   const [imageFiles, setImageFiles] = useState<File[]>([])
   const [editingMedia, setEditingMedia] = useState<any | null>(null)
   const [isFormVisible, setIsFormVisible] = useState(false)
+  const i = useTranslations("tutor")
 
   useEffect(() => {
     if (session?.sessionToken) fetchMediaList()
@@ -332,22 +334,22 @@ export default function MediaPage() {
   return (
     <div className="container mx-auto p-4 space-y-8">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold">Tutorial Controller</h1>
+        <h1 className="text-3xl font-bold">{i("tutorialcontroller")}</h1>
         <Button onClick={() => setIsFormVisible(!isFormVisible)}>
-          {isFormVisible ? "Hide Form" : "Add New Tutorial"}
+          {isFormVisible ? i("hideform") : i("addnewtutorial")}
         </Button>
       </div>
 
       {isFormVisible && (
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>{editingMedia ? "Update Tutorial" : "Create New Tutorial"}</CardTitle>
+            <CardTitle>{editingMedia ? i("updatetutorial") : i("createnewtutorial")}</CardTitle>
           </CardHeader>
           <form onSubmit={handleSubmit}>
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <label htmlFor="title" className="text-sm font-medium">
-                  Title
+                  {i("title")}
                 </label>
                 <Input
                   id="title"
@@ -360,7 +362,7 @@ export default function MediaPage() {
               </div>
               <div className="space-y-2">
                 <label htmlFor="description" className="text-sm font-medium">
-                  Description
+                  {i("description")}
                 </label>
                 <Textarea
                   id="description"
@@ -372,7 +374,7 @@ export default function MediaPage() {
               </div>
               <div className="space-y-2">
                 <label htmlFor="videoUrl" className="text-sm font-medium">
-                  Video URL
+                  {i("videourl")}
                 </label>
                 <Input
                   id="videoUrl"
@@ -385,7 +387,7 @@ export default function MediaPage() {
               </div>
               <div className="space-y-2">
                 <label htmlFor="images" className="text-sm font-medium">
-                  Images
+                  {i("images")}
                 </label>
                 <Input
                   id="images"
@@ -398,7 +400,7 @@ export default function MediaPage() {
               </div>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <Button type="submit">{editingMedia ? "Update" : "Create"}</Button>
+              <Button type="submit">{editingMedia ? i("update") : i("create")}</Button>
               {editingMedia && (
                 <Button type="button" variant="outline" onClick={resetForm}>
                   Cancel
@@ -426,11 +428,11 @@ export default function MediaPage() {
               <CardFooter className="flex justify-between">
                 <Button variant="outline" size="sm" onClick={() => handleEdit(media.id)}>
                   <Edit className="w-4 h-4 mr-2" />
-                  Edit
+                  {i("edit")}
                 </Button>
                 <Button variant="destructive" size="sm" onClick={() => handleDelete(media.id)}>
                   <Trash2 className="w-4 h-4 mr-2" />
-                  Delete
+                  {i("delete")}
                 </Button>
               </CardFooter>
             </Card>
