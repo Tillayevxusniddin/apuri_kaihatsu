@@ -148,7 +148,8 @@
     "videourl": "動画のURL",
     "images": "画像",
     "create": "作成",
-    "update": "更新"
+    "update": "更新",
+    "cancel": "閉じる"
 
   },
   "dashboard": {
