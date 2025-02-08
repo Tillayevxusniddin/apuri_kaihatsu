@@ -654,3 +654,7 @@ const TutorialCard: React.FC<TutorialCardProps> = ({ tutorial, isActive, directi
 export default TutorialCard
 
 
+// 角田さん、お疲れ様です。
+//
+// ギャラリーのようにカルーセルを設定しました。各カードの説明は、そのカードに関連する画像の下に表示されるようになりました。
+
